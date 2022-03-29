@@ -1,0 +1,13 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: estructura/intro
+chapters:
+- file: estructura/preliminares
+- file: estructura/marco_teorico
+- file: estructura/desarrollo
+  sections:
+  - file: cuadernos_jupyter/forraje/analisis_forraje_arbol_regresion.ipynb
+  - file: cuadernos_jupyter/forraje/analisis_forraje_KNN.ipynb
+

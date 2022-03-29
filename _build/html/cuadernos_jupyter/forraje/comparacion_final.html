@@ -1,0 +1,903 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Comparar los 4 algoritmos probados &#8212; Tesina de Grado</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo_facultad.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tesina de Grado</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../estructura/intro.html">
+   Sistema de Información y Apoyo a la Producción Ovina de Baja Escala en Chubut
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../estructura/preliminares.html">
+   Preliminares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../estructura/marco_teorico.html">
+   Marco Teorico
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../estructura/desarrollo.html">
+   Desarrollo
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="analisis_forraje_arbol_regresion.html">
+     Árbol de regresión Forraje
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="analisis_forraje_KNN.html">
+     Análisis Forraje k-Nearest Neighbor
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/cuadernos_jupyter/forraje/comparacion_final.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/LucilaAllende/datos-tesina-2021"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/LucilaAllende/datos-tesina-2021/issues/new?title=Issue%20on%20page%20%2Fcuadernos_jupyter/forraje/comparacion_final.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/LucilaAllende/datos-tesina-2021/master?urlpath=tree/docs/cuadernos_jupyter/forraje/comparacion_final.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis">
+   Analisis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusión
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Comparar los 4 algoritmos probados</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis">
+   Analisis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusión
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="comparar-los-4-algoritmos-probados">
+<h1>Comparar los 4 algoritmos probados<a class="headerlink" href="#comparar-los-4-algoritmos-probados" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;algoritmo&#39;</span><span class="p">,</span><span class="s1">&#39;modelo&#39;</span><span class="p">,</span> <span class="s1">&#39;descripcion&#39;</span><span class="p">,</span> <span class="s1">&#39;VE&#39;</span><span class="p">,</span> <span class="s1">&#39;MAE&#39;</span><span class="p">,</span> <span class="s1">&#39;MSE&#39;</span><span class="p">,</span> <span class="s1">&#39;RMSE&#39;</span><span class="p">,</span><span class="s1">&#39;R2&#39;</span><span class="p">],</span><span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">))</span>
+
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;RL&#39;</span><span class="p">,</span><span class="s1">&#39;prediccion1&#39;</span><span class="p">,</span><span class="s1">&#39;rl que intenta predecir VP a partir de acumulado de lluvia anual&#39;</span><span class="p">,</span><span class="mf">0.26</span><span class="p">,</span><span class="mf">4.02</span><span class="p">,</span><span class="mf">25.55</span><span class="p">,</span><span class="mf">5.05</span><span class="p">,</span><span class="mf">0.24</span><span class="p">)</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;RL&#39;</span><span class="p">,</span><span class="s1">&#39;prediccion2&#39;</span><span class="p">,</span><span class="s1">&#39;rl que intenta predecir VP a partir de acumulado de lluvia en el verano&#39;</span><span class="p">,</span><span class="mf">0.37</span><span class="p">,</span><span class="mf">3.92</span><span class="p">,</span><span class="mf">24.88</span><span class="p">,</span><span class="mf">4.98</span><span class="p">,</span><span class="mf">0.37</span><span class="p">)</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;RL&#39;</span><span class="p">,</span><span class="s1">&#39;prediccion3&#39;</span><span class="p">,</span><span class="s1">&#39;rl que intenta predecir VP a partir de acumulado de lluvia anual pero agrupando por acumulado de lluvia anual&#39;</span><span class="p">,</span><span class="mf">0.29</span><span class="p">,</span><span class="mf">3.05</span><span class="p">,</span><span class="mf">14.60</span><span class="p">,</span><span class="mf">3.82</span><span class="p">,</span><span class="mf">0.26</span><span class="p">)</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;RL&#39;</span><span class="p">,</span><span class="s1">&#39;prediccion4&#39;</span><span class="p">,</span><span class="s1">&#39;rl que intenta predecir VP a partir de acumulado de lluvia en el verano pero agrupando por acumulado de lluvia anual&#39;</span><span class="p">,</span><span class="mf">0.51</span><span class="p">,</span><span class="mf">3.89</span><span class="p">,</span><span class="mf">18.01</span><span class="p">,</span><span class="mf">4.24</span><span class="p">,</span><span class="mf">0.23</span><span class="p">)</span>
+
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;RLM&#39;</span><span class="p">,</span><span class="s1">&#39;prediccion1&#39;</span><span class="p">,</span><span class="s1">&#39;rl multiple que intenta predecir VP a partir de acumulado de lluvia anual y acumulado de lluvia verano&#39;</span><span class="p">,</span><span class="mf">0.43</span><span class="p">,</span><span class="mf">3.35</span><span class="p">,</span><span class="mf">16.2</span><span class="p">,</span><span class="mf">4.03</span><span class="p">,</span><span class="mf">0.41</span><span class="p">)</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;RLM&#39;</span><span class="p">,</span><span class="s1">&#39;prediccion2&#39;</span><span class="p">,</span><span class="s1">&#39;rl multiple que intenta predecir VP a partir de acumulado de lluvia anual y temperatura minima promedio&#39;</span><span class="p">,</span><span class="mf">0.37</span><span class="p">,</span><span class="mf">3.67</span><span class="p">,</span><span class="mf">21.61</span><span class="p">,</span><span class="mf">4.65</span><span class="p">,</span><span class="mf">0.37</span><span class="p">)</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;RLM&#39;</span><span class="p">,</span><span class="s1">&#39;prediccion3&#39;</span><span class="p">,</span><span class="s1">&#39;rl multiple que intenta predecir VP a partir de todas las variabes climaticas&#39;</span><span class="p">,</span><span class="mf">0.44</span><span class="p">,</span><span class="mf">3.40</span><span class="p">,</span><span class="mf">19.16</span><span class="p">,</span><span class="mf">4.38</span><span class="p">,</span><span class="mf">0.44</span><span class="p">)</span>
+
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;KNN&#39;</span><span class="p">,</span><span class="s1">&#39;prediccion1&#39;</span><span class="p">,</span><span class="s1">&#39;knn que toma todas las variables climaticas y el vp&#39;</span><span class="p">,</span><span class="mf">0.37</span><span class="p">,</span><span class="mf">3.48</span><span class="p">,</span><span class="mf">20.06</span><span class="p">,</span><span class="mf">4.48</span><span class="p">,</span><span class="mf">0.37</span><span class="p">)</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;KNN&#39;</span><span class="p">,</span><span class="s1">&#39;prediccion2&#39;</span><span class="p">,</span><span class="s1">&#39;knn que toma todas las variables climaticas y el vp pero agrupadas por acumulado anual&#39;</span><span class="p">,</span><span class="mf">0.30</span><span class="p">,</span><span class="mf">2.65</span><span class="p">,</span><span class="mf">7.14</span><span class="p">,</span><span class="mf">2.67</span><span class="p">,</span><span class="mf">0.14</span><span class="p">)</span>
+
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;arbol&#39;</span><span class="p">,</span><span class="s1">&#39;prediccion1&#39;</span><span class="p">,</span><span class="s1">&#39;arbol de regresion que toma todas las variables climaticas con profundidad 3&#39;</span><span class="p">,</span><span class="mf">0.43</span><span class="p">,</span><span class="mf">3.35</span><span class="p">,</span><span class="mf">16.2</span><span class="p">,</span><span class="mf">4.03</span><span class="p">,</span><span class="mf">0.41</span><span class="p">)</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;arbol&#39;</span><span class="p">,</span><span class="s1">&#39;prediccion2&#39;</span><span class="p">,</span><span class="s1">&#39;arbol de regresion que toma todas las variables climaticas con profundidad 4&#39;</span><span class="p">,</span><span class="mf">0.37</span><span class="p">,</span><span class="mf">3.67</span><span class="p">,</span><span class="mf">21.61</span><span class="p">,</span><span class="mf">4.65</span><span class="p">,</span><span class="mf">0.37</span><span class="p">)</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;arbol&#39;</span><span class="p">,</span><span class="s1">&#39;prediccion3&#39;</span><span class="p">,</span><span class="s1">&#39;arbol de regresion que toma todas las 3 variables climaticas mas correlacionadas con el VP con profundidad 4&#39;</span><span class="p">,</span><span class="mf">0.37</span><span class="p">,</span><span class="mf">3.67</span><span class="p">,</span><span class="mf">21.61</span><span class="p">,</span><span class="mf">4.65</span><span class="p">,</span><span class="mf">0.37</span><span class="p">)</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;arbol&#39;</span><span class="p">,</span><span class="s1">&#39;prediccion4&#39;</span><span class="p">,</span><span class="s1">&#39;arbol de regresion que toma todas las variables climaticas pero agrupadas por acumulado de lluvia anual con profundidad 4&#39;</span><span class="p">,</span><span class="mf">0.67</span><span class="p">,</span><span class="mf">3.11</span><span class="p">,</span><span class="mf">10.74</span><span class="p">,</span><span class="mf">3.28</span><span class="p">,</span><span class="mf">0.65</span><span class="p">)</span>
+
+<span class="n">tabla</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>algoritmo</th>
+      <th>modelo</th>
+      <th>descripcion</th>
+      <th>VE</th>
+      <th>MAE</th>
+      <th>MSE</th>
+      <th>RMSE</th>
+      <th>R2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RL</td>
+      <td>prediccion1</td>
+      <td>rl que intenta predecir VP a partir de acumula...</td>
+      <td>0.26</td>
+      <td>4.02</td>
+      <td>25.55</td>
+      <td>5.05</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>RL</td>
+      <td>prediccion2</td>
+      <td>rl que intenta predecir VP a partir de acumula...</td>
+      <td>0.37</td>
+      <td>3.92</td>
+      <td>24.88</td>
+      <td>4.98</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RL</td>
+      <td>prediccion3</td>
+      <td>rl que intenta predecir VP a partir de acumula...</td>
+      <td>0.29</td>
+      <td>3.05</td>
+      <td>14.6</td>
+      <td>3.82</td>
+      <td>0.26</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>RL</td>
+      <td>prediccion4</td>
+      <td>rl que intenta predecir VP a partir de acumula...</td>
+      <td>0.51</td>
+      <td>3.89</td>
+      <td>18.01</td>
+      <td>4.24</td>
+      <td>0.23</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>RLM</td>
+      <td>prediccion1</td>
+      <td>rl multiple que intenta predecir VP a partir d...</td>
+      <td>0.43</td>
+      <td>3.35</td>
+      <td>16.2</td>
+      <td>4.03</td>
+      <td>0.41</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>RLM</td>
+      <td>prediccion2</td>
+      <td>rl multiple que intenta predecir VP a partir d...</td>
+      <td>0.37</td>
+      <td>3.67</td>
+      <td>21.61</td>
+      <td>4.65</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>RLM</td>
+      <td>prediccion3</td>
+      <td>rl multiple que intenta predecir VP a partir d...</td>
+      <td>0.44</td>
+      <td>3.4</td>
+      <td>19.16</td>
+      <td>4.38</td>
+      <td>0.44</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>KNN</td>
+      <td>prediccion1</td>
+      <td>knn que toma todas las variables climaticas y ...</td>
+      <td>0.37</td>
+      <td>3.48</td>
+      <td>20.06</td>
+      <td>4.48</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>KNN</td>
+      <td>prediccion2</td>
+      <td>knn que toma todas las variables climaticas y ...</td>
+      <td>0.3</td>
+      <td>2.65</td>
+      <td>7.14</td>
+      <td>2.67</td>
+      <td>0.14</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>arbol</td>
+      <td>prediccion1</td>
+      <td>arbol de regresion que toma todas las variable...</td>
+      <td>0.43</td>
+      <td>3.35</td>
+      <td>16.2</td>
+      <td>4.03</td>
+      <td>0.41</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>arbol</td>
+      <td>prediccion2</td>
+      <td>arbol de regresion que toma todas las variable...</td>
+      <td>0.37</td>
+      <td>3.67</td>
+      <td>21.61</td>
+      <td>4.65</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>arbol</td>
+      <td>prediccion3</td>
+      <td>arbol de regresion que toma todas las 3 variab...</td>
+      <td>0.37</td>
+      <td>3.67</td>
+      <td>21.61</td>
+      <td>4.65</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>arbol</td>
+      <td>prediccion4</td>
+      <td>arbol de regresion que toma todas las variable...</td>
+      <td>0.67</td>
+      <td>3.11</td>
+      <td>10.74</td>
+      <td>3.28</td>
+      <td>0.65</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla_sin</span> <span class="o">=</span> <span class="n">tabla</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;algoritmo&#39;</span><span class="p">,</span><span class="s1">&#39;modelo&#39;</span><span class="p">,</span><span class="s1">&#39;descripcion&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tabla_sin</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>VE</th>
+      <th>MAE</th>
+      <th>MSE</th>
+      <th>RMSE</th>
+      <th>R2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.26</td>
+      <td>4.02</td>
+      <td>25.55</td>
+      <td>5.05</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.37</td>
+      <td>3.92</td>
+      <td>24.88</td>
+      <td>4.98</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.29</td>
+      <td>3.05</td>
+      <td>14.6</td>
+      <td>3.82</td>
+      <td>0.26</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.51</td>
+      <td>3.89</td>
+      <td>18.01</td>
+      <td>4.24</td>
+      <td>0.23</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.43</td>
+      <td>3.35</td>
+      <td>16.2</td>
+      <td>4.03</td>
+      <td>0.41</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.37</td>
+      <td>3.67</td>
+      <td>21.61</td>
+      <td>4.65</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.44</td>
+      <td>3.4</td>
+      <td>19.16</td>
+      <td>4.38</td>
+      <td>0.44</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.37</td>
+      <td>3.48</td>
+      <td>20.06</td>
+      <td>4.48</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.3</td>
+      <td>2.65</td>
+      <td>7.14</td>
+      <td>2.67</td>
+      <td>0.14</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.43</td>
+      <td>3.35</td>
+      <td>16.2</td>
+      <td>4.03</td>
+      <td>0.41</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.37</td>
+      <td>3.67</td>
+      <td>21.61</td>
+      <td>4.65</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.37</td>
+      <td>3.67</td>
+      <td>21.61</td>
+      <td>4.65</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>0.67</td>
+      <td>3.11</td>
+      <td>10.74</td>
+      <td>3.28</td>
+      <td>0.65</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Queria ver el min y max </span>
+<span class="n">tabla_sin</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>VE</th>
+      <th>MAE</th>
+      <th>MSE</th>
+      <th>RMSE</th>
+      <th>R2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>13.00</td>
+      <td>13.00</td>
+      <td>13.00</td>
+      <td>13.00</td>
+      <td>13.00</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>8.00</td>
+      <td>10.00</td>
+      <td>10.00</td>
+      <td>10.00</td>
+      <td>8.00</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>0.37</td>
+      <td>3.67</td>
+      <td>21.61</td>
+      <td>4.65</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>5.00</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>5.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mejor metrica VE es de&quot;</span><span class="p">,</span><span class="n">tabla</span><span class="p">[</span><span class="s1">&#39;VE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mejor metrica MAE es de&quot;</span><span class="p">,</span><span class="n">tabla</span><span class="p">[</span><span class="s1">&#39;MAE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mejor metrica MSE es de&quot;</span><span class="p">,</span><span class="n">tabla</span><span class="p">[</span><span class="s1">&#39;MSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mejor metrica RMSE es de&quot;</span><span class="p">,</span><span class="n">tabla</span><span class="p">[</span><span class="s1">&#39;RMSE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mejor metrica R2 es de&quot;</span><span class="p">,</span><span class="n">tabla</span><span class="p">[</span><span class="s1">&#39;R2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mejor metrica VE es de 0.67
+Mejor metrica MAE es de 2.65
+Mejor metrica MSE es de 7.14
+Mejor metrica RMSE es de 2.67
+Mejor metrica R2 es de 0.65
+</pre></div>
+</div>
+</div>
+</div>
+<section id="analisis">
+<h2>Analisis<a class="headerlink" href="#analisis" title="Permalink to this headline">¶</a></h2>
+<p>Si consideramos la metrica VE como la mas importante, entonces las mejores tres predicciones son:</p>
+<ul class="simple">
+<li><p>La prediccion4 de arbol de regresion 0.67</p></li>
+<li><p>La prediccion4 de regresion lineal simple 0.51</p></li>
+<li><p>La prediccion3 de rl multiple 0.44</p></li>
+</ul>
+<p>Si consideramos la metrica MAE como la mas importante, entonces las mejores tres predicciones son:</p>
+<ul class="simple">
+<li><p>La prediccion2 de knn 2.65</p></li>
+<li><p>La prediccion3 de regresion lineal simple 3.05</p></li>
+<li><p>La prediccion4 de arbol de regresion 3.11</p></li>
+</ul>
+<p>Si consideramos la metrica MSE como la mas importante, entonces las mejores tres predicciones son:</p>
+<ul class="simple">
+<li><p>La prediccion2 de knn 7.14</p></li>
+<li><p>La prediccion4 de arbol de regresion 10.74</p></li>
+<li><p>La prediccion3 de regresion lineal simple 14.6</p></li>
+</ul>
+<p>Si consideramos la metrica RMSE como la mas importante, entonces las mejores tres predicciones son:</p>
+<ul class="simple">
+<li><p>La prediccion2 de knn 2.67</p></li>
+<li><p>La prediccion4 de arbol de regresion 3.28</p></li>
+<li><p>La prediccion3 de regresion lineal simple 3.82</p></li>
+</ul>
+<p>Si consideramos la metrica R2 como la mas importante, entonces las mejores tres predicciones (2 comparten el puesto 3) son:</p>
+<ul class="simple">
+<li><p>La prediccion4 de arbol de regresion 0.65</p></li>
+<li><p>La prediccion3 de rl multiple 0.44</p></li>
+<li><p>La prediccion1 de rl multiple 0.41</p></li>
+<li><p>La prediccion1 de arbol de regresion 0.41</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prediccion4_arbol</span> <span class="o">=</span> <span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span>
+<span class="n">prediccion4_rls</span><span class="o">=</span> <span class="mi">2</span>
+<span class="n">prediccion3_rlm</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">2</span>
+<span class="n">prediccion2_knn</span> <span class="o">=</span> <span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span>
+<span class="n">prediccion3_rls</span><span class="o">=</span> <span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">prediccion1_rlm</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">prediccion1_arbol</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<span class="n">puntajes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;algoritmo&#39;</span><span class="p">,</span><span class="s1">&#39;puntaje&#39;</span><span class="p">],</span><span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">puntajes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;prediccion4_arbol&#39;</span><span class="p">,</span><span class="n">prediccion4_arbol</span><span class="p">)</span>
+<span class="n">puntajes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;prediccion4_rls&#39;</span><span class="p">,</span><span class="n">prediccion4_rls</span><span class="p">)</span>
+<span class="n">puntajes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;prediccion3_rlm&#39;</span><span class="p">,</span><span class="n">prediccion3_rlm</span><span class="p">)</span>
+<span class="n">puntajes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;prediccion2_knn&#39;</span><span class="p">,</span><span class="n">prediccion2_knn</span><span class="p">)</span>
+<span class="n">puntajes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;prediccion3_rls&#39;</span><span class="p">,</span><span class="n">prediccion3_rls</span><span class="p">)</span>
+<span class="n">puntajes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;prediccion1_rlm&#39;</span><span class="p">,</span><span class="n">prediccion1_rlm</span><span class="p">)</span>
+<span class="n">puntajes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;prediccion1_arbol&#39;</span><span class="p">,</span><span class="n">prediccion1_arbol</span><span class="p">)</span>
+
+<span class="n">puntajes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>algoritmo</th>
+      <th>puntaje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>prediccion4_arbol</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>prediccion4_rls</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>prediccion3_rlm</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>prediccion2_knn</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>prediccion3_rls</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>prediccion1_rlm</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>prediccion1_arbol</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="conclusion">
+<h2>Conclusión<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Los dos algoritmos que destacan son el arbol de regresion que toma todas las variables climaticas pero agrupadas por acumulado de lluvia anual con profundidad 4; y el knn que toma todas las variables climaticas y el vp pero agrupadas por acumulado anual.</p>
+<p>Quizas estos algoritmos mejoren mas cuando se agregen los otros 200 puntos que faltan.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./cuadernos_jupyter/forraje"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Garibaldi Anele - Allende Lucila<br/>
+    
+        &copy; Derechos de autor 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

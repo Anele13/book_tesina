@@ -1,0 +1,544 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Marco Teorico &#8212; Tesina de Grado</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Desarrollo" href="desarrollo.html" />
+    <link rel="prev" title="Preliminares" href="preliminares.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo_facultad.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tesina de Grado</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Sistema de Información y Apoyo a la Producción Ovina de Baja Escala en Chubut
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="preliminares.html">
+   Preliminares
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Marco Teorico
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="desarrollo.html">
+   Desarrollo
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cuadernos_jupyter/forraje/analisis_forraje_arbol_regresion.html">
+     Árbol de regresión Forraje
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cuadernos_jupyter/forraje/analisis_forraje_KNN.html">
+     Análisis Forraje k-Nearest Neighbor
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/estructura/marco_teorico.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/LucilaAllende/datos-tesina-2021"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/LucilaAllende/datos-tesina-2021/issues/new?title=Issue%20on%20page%20%2Festructura/marco_teorico.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion">
+   Introducción
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contextualizacion">
+   Contextualización
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#el-problema-del-clima-en-chubut">
+     El Problema del Clima en Chubut
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#el-problema-de-la-adopcion-de-tecnologias-informaticas">
+     El Problema de la Adopción de tecnologías informáticas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#propuesta-de-solucion">
+   Propuesta de Solución
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelo-de-negocios">
+   Modelo de negocios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trabajos-relacionados">
+   Trabajos Relacionados
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusión
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Marco Teorico</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion">
+   Introducción
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contextualizacion">
+   Contextualización
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#el-problema-del-clima-en-chubut">
+     El Problema del Clima en Chubut
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#el-problema-de-la-adopcion-de-tecnologias-informaticas">
+     El Problema de la Adopción de tecnologías informáticas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#propuesta-de-solucion">
+   Propuesta de Solución
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelo-de-negocios">
+   Modelo de negocios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trabajos-relacionados">
+   Trabajos Relacionados
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusión
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <section id="marco-teorico">
+<h1>Marco Teorico<a class="headerlink" href="#marco-teorico" title="Permalink to this headline">¶</a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h2>
+<p>La Provincia del Chubut es la provincia con mayor cantidad de ovinos y de productores ganaderos dedicados a la cría ovina del país y aunque este producto ha perdido importancia relativa desde la aparición de las fibras sintéticas en sustitución de la lana, es aún hoy una actividad considerable (Chubut, 2021) (Ministerio de Producción Chubut, 2017).
+En términos demográficos, Chubut posee la menor densidad de población de Argentina (Instituto Nacional de Estadística y Censos, 2010), esto sumado a condiciones ambientales adversas (bajas temperaturas, vientos, escasas lluvias, desertificación de campos, clima árido a semiárido) hacen que el desarrollo de actividades ganaderas en comunidades de pequeños y medianos productores se vea seriamente limitado en su crecimiento.  Las actividades ganaderas que se llevan a cabo, se realizan de manera tradicional y aún hoy cuentan con una escasa o nula incorporación de tecnologías de uso corriente en las ciudades y otras áreas rurales del país como por ejemplo telefonía rural, energías alternativas, tanto eléctrica como eólica, que afectan problemas de calefacción, comunicación, seguridad, acceso a mercados, gestión de empresas, indumentaria rural, y acceso a la salud. Asimismo, la ejecución de las políticas del sector agropecuario en Chubut se apoya principalmente en soporte de papel, sin registro electrónico, y a pesar de que, durante el último tiempo hubieron intentos de incorporación de tecnología que mostraron la factibilidad de diversas tareas (Barry Cortez et al., 2017), no se materializaron en decisiones políticas, por lo tanto han permanecido con idéntica gestión durante los últimos años (Ministerio de Producción Chubut, 2017).
+A nivel mundial, el uso de tecnología informática y electrónica en el ámbito agropecuario se ha establecido como una necesidad para optimizar la producción y forma parte del denominado paquete tecnológico habitual en grandes escalas productivas. No obstante, en la actualidad persiste el auge en la investigación en estas temáticas, generando conocimiento, a partir de diferentes estrategias de aplicación ámbito agropecuario, tanto de Big Data (Kamilaris 2017), inteligencia artificial e Internet de las Cosas (Subeesh 2021), como de soporte para la toma de decisiones (Kukar 2019) hasta la denominada Agricultura 4.0 (Zhai 2020). Por otro lado, en el dominio de la producción ganadera y su relación con el clima en producciones de baja escala existen experiencias en Kenia (Brandt 2017), Pakistan (Ahmed 2018) y Grecia (Vouraki 2020), entre otros.
+En base a lo anterior, el objetivo de este trabajo es presentar una propuesta de incorporación de tecnología informática, para productores ganaderos de baja escala de la región Patagónica Argentina, la cual propenda a la toma de mejores decisiones, basadas en la recolección de pocos datos, provocando una adopción satisfactoria de la misma.
+El resto del trabajo se organiza de la siguiente manera: luego de esta introducción, en la sección Contextualización, se describe el dominio de aplicación en el que se enmarca la propuesta; la sección Requerimientos del Sistema establece las características deseadas que debe contener la propuesta a desarrollar, tanto funcionales como no funcionales; en la sección Modelo de Negocio, se elabora de forma integral una propuesta de valor para satisfacer los requerimientos establecidos, desde el punto de vista de un emprendimiento económico, identificando las principales aristas del mismo; en sección Trabajos Relacionados, se sintetizan algunos desarrollos comerciales similares en contraste con la propuesta elaborada en este trabajo; finalmente, en la sección Conclusiones se exponen los aprendizajes y reflexiones obtenidos a partir del trabajo.</p>
+</section>
+<section id="contextualizacion">
+<h2>Contextualización<a class="headerlink" href="#contextualizacion" title="Permalink to this headline">¶</a></h2>
+<section id="el-problema-del-clima-en-chubut">
+<h3>El Problema del Clima en Chubut<a class="headerlink" href="#el-problema-del-clima-en-chubut" title="Permalink to this headline">¶</a></h3>
+<p>La mayor parte de la geografía chubutense es una zona con un clima predominante templado-frío-ventoso y con escasas precipitaciones a lo largo del año  (Chubut, 2021). Estas condiciones ambientales caracterizan al área como marginal para la producción ovina, actividad de elevado riesgo si se consideran además los eventos climáticos extremos y cíclicos de sequía, temporales y nevadas (Sturzenbaum 2013). En cuanto a las consecuencias, suele considerarse en estudios científicos o técnicos que las sequías generan tanto la reducción del forraje (con impactos variables según la intensidad, frecuencia y/o duración del fenómeno); como de las provisiones de agua para la población y los animales (Garcia Martinez et al., 2017). En relación a la ganadería, ambas cuestiones perjudican la productividad, disminuyendo la cantidad de kilos de lana y carne obtenidas en un ciclo productivo. Cuando la intensidad del fenómeno es profunda o se extiende en el tiempo, afecta la condición corporal de los animales llegando a provocar su muerte o la de sus corderos, la disminución de los niveles de preñez y por ende de pariciones. Estas pérdidas generan dificultades para la reposición del ganado perdido, lo que gradualmente lleva al envejecimiento de la hacienda. Como consecuencia, se puede producir la descapitalización de los productores, o el deterioro en sus ingresos, siendo difícil la posterior recuperación durante los siguientes ciclos productivos (Ejarque, 2020). Por lo tanto las condiciones climáticas afectan directamente a la productividad del pastizal y animal de los sistemas ganaderos extensivos, generando una cierta inestabilidad productiva y económica a las empresas ovinas (Sturzenbaum y Dr. Andrade, 2012). La degradación generalizada que se observa en la zona tanto de los pastizales como del suelo, en gran parte originada por un manejo inadecuado, constituye el principal problema ecológico productivo de la región (Centro Regional Patagonia Sur - INTA, 2015). Sin embargo, la sequía tuvo una importante relevancia debido a que generó alteraciones en los medios de vida. En función de sus consecuencias, en el ámbito de la producción y del trabajo, expertos sostuvieron la importancia de modificar las formas de producción de los ganaderos, para que se puedan “adaptar” a las sequías, que son “recurrentes” y que, con esas medidas, sus efectos sean menos notorios. Propusieron tecnologías y prácticas de manejo que permitieran generar menores consecuencias negativas en lo productivo, como la realización de diagnósticos de los animales, ajuste de carga, pariciones controladas, traslados hacia zonas con mayores pasturas (Ejarque, 2020). Estas tecnologías permiten realizar un uso sustentable de los recursos naturales y un incremento en la eficiencia de producción, sin embargo la adopción de estas tecnologías está muy lejos de ser generalizada. La esquila preparto, tecnología que permite un incremento en el número de corderos señalados y mejoras en la calidad de la lana, ha logrado una mediana adopción (menor a 50%) al igual que PROLANA (esquila desmaneada, clasificación y acondicionamiento de lana y mejor precio de la misma). Sin detallar cada una de las tecnologías disponibles y su nivel de adopción predial, se puede decir, que en términos generales, el uso de las tecnologías probadas que permiten incrementar la productividad de la ganadería, mejorar la calidad de los productos primarios resultantes de la actividad, y generar impacto y estabilidad a los sistemas, no está generalizado, ya sea por cuestiones culturales, económicas, políticas o de estrategia de intervención (Iglesias y otros, 2015).</p>
+</section>
+<section id="el-problema-de-la-adopcion-de-tecnologias-informaticas">
+<h3>El Problema de la Adopción de tecnologías informáticas<a class="headerlink" href="#el-problema-de-la-adopcion-de-tecnologias-informaticas" title="Permalink to this headline">¶</a></h3>
+<p>Actualmente las organizaciones tienen la necesidad de ser más competitivas y tener información real disponible para la toma de decisiones, se requiere de herramientas orientadas a disminuir el tiempo al momento de tomar una decisión, generar información confiable para poder tomar decisiones correctas, disminuir costos, aumentar productividad y conducir a múltiples análisis de ¿qué pasa si…? Los sistemas que hoy apoyan el proceso de toma de decisiones están orientados a los altos ejecutivos y personas que tienen esta responsabilidad dentro de la organización, estos son conocidos como DSS (Decisión Support System), EIS (Executive Information Systems) y numerosos sistemas expertos que cada día proveen información en tiempo real, de manera gráfica y resumida a sus usuarios finales (Díaz y Arturo, 2006). En la provincia del Chubut las personas que se dedican a la producción agropecuaria, basan generalmente su actividad en la ganadería ovina extensiva. De un total de 4.089 Unidades Ganaderas (UG), un 37 % de los productores se encuentra en los departamentos de Cushamen y Gastre, y el 10% se encuentran en el Valle Inferior del Río Chubut (Hermosilla Rivera Cristian, 2013).  El 80% de los productores chubutenses tienen menos de 1.000 ovinos; lo cual refleja un sector productor de muy baja escala. Por otro lado, la mayor cantidad de ovinos se ubica en los departamentos de Tehuelches y Río Senguer, donde se concentra el 31% de la existencia de ovinos del Chubut. Desde el punto de vista de la capacidad de gestión para la toma de decisiones, y tomando como unidad mínima un establecimiento con 3.000 animales, se observó en una encuesta que el 94% de los productores en Chubut tienen una baja capacidad de tomar decisiones (Ministerio de Producción Chubut, 2017).
+Se sabe que la apropiación de sistemas como los DSS en la agroindustria es lenta y baja, debido a la complejidad que perciben sus usuarios, las pocas estrategias de adopción y a la necesidad de modificar patrones de conducta. Hay quienes agregan que, como consecuencia de no usar Tecnologías de la Información (TI) en los sistemas se generan errores o retrasos en las decisiones, desconocimiento de las pérdidas o ausencia de utilidades, desestimación o abandono y por ende migración a las ciudades. Aunque la presencia de las TI facilita controlar procesos organizacionales al otorgar información para mejorar la eficiencia del proceso, en el sector ganadero, además de ello, agrega valor al brindar la posibilidad de trazabilidad desde la gestación del animal hasta la venta o consumo de los productos (Urbano et al., 2019).</p>
+</section>
+</section>
+<section id="propuesta-de-solucion">
+<h2>Propuesta de Solución<a class="headerlink" href="#propuesta-de-solucion" title="Permalink to this headline">¶</a></h2>
+<p>Para poder enfrentar los dos problemas planteados inicialmente, se pensó en desarrollar un DSS pasivo que a diferencia de un sistema activo, es un modelo que ayuda en el proceso de toma de decisiones pero no puede llevar a cabo una decisión explícita, sugerencias o soluciones. El sistema está pensado para ser utilizado por el dueño del campo, que es el único rol identificado. A partir de este rol se pudieron obtener los siguientes requerimientos, en formato de Historias de Usuario (Patton y Economy, 2014), los cuales fueron validados por un usuario real:</p>
+<ul class="simple">
+<li><p>Como dueño del campo, quiero cargar todos los datos de producción sobre mi campo, para estimar producciones futuras y correlacionarlos con otros datos.</p></li>
+<li><p>Como dueño del campo, quiero acceder al historial meteorológico de la zona, para correlacionarlo con mis datos de producción.</p></li>
+<li><p>Como dueño del campo, quiero ir a un año del pasado, para saber qué pasó con el clima y cómo repercutió en mi producción.</p></li>
+<li><p>Como dueño del campo, quiero saber cuál fue mi mejor año, en base a variables de interés, para tratar de establecer las condiciones que permitan replicar esa situación.</p></li>
+<li><p>Como dueño del campo, quiero estimar el volumen de precipitaciones, para saber qué medidas tomar respecto a la producción.</p></li>
+<li><p>Como dueño del campo, quiero establecer puntos de control críticos en la producción,  para evitar o revertir un manejo inadecuado de la producción.</p></li>
+<li><p>Como dueño del campo, quiero registrar los datos de mi campo, para hacer estimaciones productivas.</p></li>
+</ul>
+<p>Este DSS ofrece un conjunto reducido de las funcionalidades requeridas por el usuario, acompañando los resultados con información gráfica que permite una rápida interpretación y favorece una futura toma de decisiones por parte del usuario final. En términos funcionales, éste DSS es suministrado con información productiva y meteorológica perteneciente al campo de un productor determinado. Para los datos productivos, el productor debe suministrar los siguientes datos al sistema:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mortandad</p></td>
+<td><p>Indica la cantidad de animales que murieron.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Kilos de lana</p></td>
+<td><p>Indica la cantidad de kilos de lana esquilados de todos los ovinos.</p></td>
+</tr>
+<tr class="row-even"><td><p>Rinde de la lana</p></td>
+<td><p>Indica el porcentaje de peso de la lana limpia sobre el peso de la lana sucia.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Finura de la lana</p></td>
+<td><p>Indica el diámetro medio de la fibra de lana.</p></td>
+</tr>
+<tr class="row-even"><td><p>Cantidad de ovejas</p></td>
+<td><p>Indica la cantidad de ovinos que el productor tiene en existencia.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cantidad de corderos</p></td>
+<td><p>Indica la cantidad de corderos que el productor tiene en existencia.</p></td>
+</tr>
+<tr class="row-even"><td><p>Cantidad de pariciones</p></td>
+<td><p>Indica la cantidad de animales que nacieron.</p></td>
+</tr>
+</tbody>
+</table>
+<p>En cuanto a los datos climáticos, el productor cuenta con la posibilidad de utilizar datos suministrados por sondas climáticas pertenecientes al INTA en la medida en que su campo se encuentre situado en cercanías de las sondas mencionadas; en caso contrario el productor debe suministrar los siguientes datos climáticos al sistema:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Temperatura mínima</p></td>
+<td><p>Indica la temperatura mínima de una zona geográfica.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Temperatura media</p></td>
+<td><p>Indica la temperatura media de una zona geográfica.</p></td>
+</tr>
+<tr class="row-even"><td><p>Temperatura máxima</p></td>
+<td><p>Indica la temperatura máxima de una zona geográfica.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Humedad</p></td>
+<td><p>Indica la humedad  de una zona geográfica.</p></td>
+</tr>
+<tr class="row-even"><td><p>Velocidad viento</p></td>
+<td><p>Indica la velocidad del viento de una zona geográfica.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Velocidad maxima viento</p></td>
+<td><p>Indica la velocidad máxima del viento de una zona geográfica.</p></td>
+</tr>
+<tr class="row-even"><td><p>Dirección del viento</p></td>
+<td><p>Indica la dirección del viento de una zona geográfica.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mm de lluvia</p></td>
+<td><p>Indica la cantidad de milímetros de lluvia acumulada de una zona geográfica.</p></td>
+</tr>
+<tr class="row-even"><td><p>Radiación solar</p></td>
+<td><p>Indica la radiación solar de una zona geográfica.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Una vez suministrado el sistema con datos productivos y climáticos el productor contará con la posibilidad de responder a preguntas del tipo “que tan bien o mal me ha ido en un año determinado” teniendo en cuenta todas las variables productivas mencionadas anteriormente.
+A diferencia de los sistemas predominantes en el mercado, este desarrollo apunta a la rapidez de interpretación de datos históricos con gráficos resumidos y descriptivos, con una interfaz de usuario minimalista y a la vez amigable sobre todo orientada a usuarios poco afines al uso de tecnologías. Se trata de una aplicación web, que se despliega en cualquier navegador, y le permite a los productores tener al alcance de la mano información proveniente de muchos años de relevamiento resumida en gráficos y tablas de rápida interpretación. En el siguiente gráfico, se podrá apreciar la arquitectura de la misma desde un alto nivel.</p>
+<p><img alt="image info" src="../_images/funcionamiento_app.png" /></p>
+<p>El sistema es alimentado por el usuario dueño del campo, con datos de su producción ganadera y datos climáticos, ambos, registrados históricamente, de esta manera el sistema podrá ofrecerle información resumida y gráficos acerca de cuál ha sido su mejor año contrastado con distintas variables de interés Además el sistema recolecta datos históricos climáticos ofrecidos por el SIPAS (INTA) pertenecientes a sondas climáticas distribuidas por toda la provincia del Chubut, esta información climática es ofrecida al usuario para que, en caso de que el mismo no cuente con su propio dataset de información, pueda utilizarla como datos climáticos válidos para el funcionamiento del sistema. Por otro lado, el sistema ofrece la opción de realizar una estimación a corto plazo de la lluvia y la temperatura esperadas basado en modelos de inteligencia artificial utilizando los datos climáticos del usuario. El modelo de estimación utilizado se denomina Modelo Autorregresivo Integrado de Media Móvil (ARIMA), (Kotu, 2018), el cual trabaja con datos en forma de series temporales y para que su rendimiento sea el más óptimo los datos tienen que ser estacionales o cíclicos; este predictor será entrenado para cada sonda del INTA, y en el caso de que los usuarios carguen sus propios datos climáticos se deberá entrenar para cada uno de ellos. Este modelo de inteligencia artificial es utilizado en predicción de precios forestales (Broz y Viego, 2014) estimación de la producción de leche (Sánchez y otros, 2014), vigilancia de enfermedades transmisibles (Marie, 2007) y predicción climática (Aguado-Rodríguez y otros 2016)
+Además la información procesada del sistema podrá ser utilizada por organizaciones como INTA, PROLANA y demás organismos públicos para sus propios fines. El sistema propuesto pretende ser un complemento para las nuevas tecnologías ganaderas anteriormente mencionadas, con él se podrá obtener información procesada y resumida que sea apta para tomar decisiones frente a situaciones que requieren contar con previsibilidad evitando problemas a futuro. Se sabe que las lluvias no predominan en la zona, pero saber cuánto y cuándo exactamente llovió puede darle herramientas al productor para tomar decisiones de gestión anticipadas, mejor planificadas y que afecten positivamente a la producción. Al tener la posibilidad de mirar retrospectivamente la información meteorológica y de producción ordenada, el productor puede ver cuál ha sido el comportamiento de sus variables de producción en años anteriores y contar con la posibilidad de realizar comparaciones entre distintos años y de esta manera por ejemplo encontrar un año donde las precipitaciones acumularon la misma cantidad de milímetros, o donde se obtuvo el mejor rinde. Este conjunto de información le permitirá al productor conocer:</p>
+<ul class="simple">
+<li><p>Si es necesario comprar suplementos o no. En caso de tener que hacerlo, puede saberlo con anticipación y por lo tanto conseguirlo a un precio más rentable debido a que no es la temporada de mayor demanda.</p></li>
+<li><p>Si conviene o no largar los carneros a la majada.</p></li>
+<li><p>Si es necesario llamar a un veterinario que le sugiera medidas sanitarias a tomar con sus animales.</p></li>
+<li><p>Si es necesario reducir o aumentar la carga animal presente en el campo en un determinado momento.</p></li>
+</ul>
+<p>Con este desarrollo el productor puede lograr sobreponerse a las inclemencias climáticas de la región, logrando estimar valores de lluvia y temperaturas cercanos a los reales y, de esta manera, tomar mejores decisiones productivas teniendo en consideración las variaciones climáticas de la zona.</p>
+</section>
+<section id="modelo-de-negocios">
+<h2>Modelo de negocios<a class="headerlink" href="#modelo-de-negocios" title="Permalink to this headline">¶</a></h2>
+<p>El desarrollo de tecnología para un segmento de mercado tan pequeño y particular como el descrito aquí, requiere un análisis integral, a fin de que la propuesta de solución sea genuinamente apropiada por los destinatarios y sustentable en términos económicos, así como respecto a las funcionalidades que ofrece. En este sentido, se toma el enfoque de Business Model Canvas (Osterwalder y Pigneur, 2011), con el objetivo de modelar las entidades, actividades, flujos y demás factores intervinientes en una materialización de la propuesta de valor. En virtud de que este trabajo se enmarca en la categoría de Proyecto Tecnológico, en orden de alcanzar completitud en la propuesta del Business Model Canvas y articular acciones de educación en la innovación (Luna, 2020), se presenta el desarrollo llevado adelante por la empresa imaginaria L&amp;A Software.</p>
+<p><img alt="image info" src="../_images/modelo_negocio.png" /></p>
+<p>Los bloques del tablero canvas resumen las siguientes características:</p>
+<ul class="simple">
+<li><p><strong>Propuesta de valor</strong>. Como propuesta de valor tenemos una aplicación web que ayuda a los ganaderos a tomar decisiones en base a sus datos de producción y sus datos climáticos. Además de estar pensada como una herramienta informática de ayuda a la gestión productiva de un campo, este sistema puede verse como una posible fuente de datos para distintos organismos que posean algún tipo de interés en la información almacenada y procesada por el mismo, logrando así aumentar el valor de su estructura funcional y colaborar en la elaboración de políticas públicas.</p></li>
+<li><p><strong>Segmento de clientes</strong>. Es importante remarcar el amplio abanico de clientes que existen y que aumentan el valor de producir un sistema con estas características; no solo los usuarios productores de campo sino otros como organismos públicos o privados son los que ofrecen la oportunidad de dar un valor agregado a la información contenida en el sistema. Particularmente los clientes del sistema podrían ser productores ganaderos que requieran algún tipo de ayuda o soporte a la toma de decisiones productivas en base a sus datos, y que quieran tener su información organizada de forma simple. Además se identifican otras instituciones que pueden verse como clientes tales como INTA, PROLANA, u organismos estatales que deseen tener acceso a la información almacenada en el sistema.</p></li>
+<li><p><strong>Canales</strong>. Los canales que nos permitirían llegar a nuestros clientes serían el boca a boca, la comunicación mediante una página web oficial de la aplicación y la creación de perfiles en redes sociales para promoción y acercamiento con los posibles clientes finales.
+Relación con el cliente. Para establecer una correcta comunicación con nuestros clientes, estar al pendiente de sus inquietudes y forjar una relación de confianza, se ofrecerá soporte a los usuarios a través de redes sociales y la página web oficial, así como el tradicional canal telefónico y capacitaciones presenciales.</p></li>
+<li><p><strong>Socios clave</strong>. Los socios clave identificados son en primera instancia los desarrolladores para diseñar, programar y mantener la aplicación. También es posible identificar asesores agrónomos los cuales poseen información acerca del nicho de mercado al que podría estar dirigido el sistema y sobre los cuales identificar casos de uso específicos y relevantes para el desarrollo de la aplicación. Otros socios podrían ser expertos en meteorología. También serán necesarios aliados tecnológicos, que aporten infraestructura o plataformas, que sean necesarias.</p></li>
+<li><p><strong>Recursos clave</strong>: Dentro de los recursos identificados tenemos nuevamente a los desarrolladores que son el recurso humano-intelectual y además toda la infraestructura tecnológica necesaria que agrupa y organiza el conjunto de elementos tecnológicos que integran el desarrollo y puesta en marcha de la aplicación.</p></li>
+<li><p><strong>Actividades clave</strong>. Como actividades clave debemos investigar el dominio; diseñar, desarrollar y mantener la aplicación web, y también brindar soporte a los usuarios finales una vez que la aplicación se encuentre en funcionamiento. A estas actividades técnicas, se suma la administración y gestión de la empresa.</p></li>
+<li><p><strong>Costos e Ingresos</strong>. En cuanto a los costos y los ingresos identificados podemos detectar que el gasto principal son los desarrolladores y la infraestructura tecnológica, ambos necesarios para la puesta en funcionamiento de la aplicación, junto con los asociados a la creación y administración de la empresa. Por otro lado, la fuente de ingresos económicos principal será la utilización de la aplicación en entornos reales por los usuarios finales con sus respectivos mantenimientos. En este punto se evalúan alternativas de licenciamiento y actualizaciones.</p></li>
+</ul>
+</section>
+<section id="trabajos-relacionados">
+<h2>Trabajos Relacionados<a class="headerlink" href="#trabajos-relacionados" title="Permalink to this headline">¶</a></h2>
+<p>Los sistemas informáticos que se encuentran en el mercado, sirven para gestionar los campos y están mayormente orientados a las características financieras de la producción, y no tanto a la relación que existe entre el clima y los animales. Algunos ejemplos de aplicaciones informáticas y sus descripciones pueden ser las siguientes:
+<strong>Finnegans GO CERES</strong>: sirve para gestionar una empresa ganadera de forma online,  ya que es 100% Cloud. Este software te permite controlar los costos de los insumos aplicados y el de las labores que se llevaron a cabo; llevar un seguimiento completo de las actividades ganaderas; tener un mejor control de existencias, entregas, certificaciones y liquidaciones; resolver toda la gestión administrativa: la generación de cuentas corrientes de clientes y proveedores, presentaciones contables y los cálculos e interacciones con el fisco; tener a disposición herramientas de seguimiento para gestionar la trazabilidad de rodeo por tropa e identificación animal; controlar el cumplimiento de planes sanitarios y la disponibilidad de vacunas; llevar un control del inventario de los alimentos y tener información sobre qué se le dio de comer a cada animal y cuánto consumen (Finnegans, s.f.).
+<strong>VISUAL Gestión Agro</strong>: es un software desarrollado para windows y está orientado a productores agropecuarios, ingenieros agrónomos, licenciados en administración rural, licenciados en administración de empresas agropecuarias que asesoran a productores, estudios contables que deseen llevar la gestión de empresas agropecuarias y contratistas rurales que deseen llevar el seguimiento y la gestión de las labores realizadas a terceros. Combina diversas tecnologías de información y permiten al productor y a la empresa agropecuaria sistematizar el flujo de datos vinculado con su actividad integrando la información administrativa, contable, impositiva y financiera con las netamente económicas y técnicas de campo, de manera tal que le permitan planear y gestionar con eficiencia (Visualsystemas, s.f.).
+Ovi Control: es un software para ovinos desarrollado en colaboración con ganaderos y veterinarios del sector; y se trata de un programa muy completo. Entre sus características están: control de reproductoras, control de engorde, administración contable, fiscal y analítica, control económico además permite gestionar varios campos de un mismo usuario. Este sistema genera distintos tipos alertas respecto a los animales, permite hacer comparativas entre diferentes criterios, y además proporciona, mediante informes, todo lo relativo a: destetes, vacunas, envío al matadero, etc. (Innovación Ganadera, s.f).
+<strong>Ovitec</strong>: es un programa de gestión de ovinos, disponible para las plataformas Web, Escritorio y Mobile. Sirve como herramienta para la rápida toma de decisiones y posee las siguientes características: panel de control que permite una visión de la granja desde la pantalla principal; hembras reproductoras; trazabilidad de individuos; gestión de engorde; integración con dispositivos móviles compatibles con RFID y lectores de códigos de barras; integración con sistema de alimentación automática; gestión económica; informes de planificación de tareas; registros médicos; transferencia de animales entre sus granjas; exportar historiales de animales a un archivo y luego importar a otra base de datos; permite crear informes a través de múltiples granjas, comparándolas por tipo de granja, región u otro criterio; integración contable que permite la importación desde fuentes de datos externas (Agritec, s.f.).
+Los anteriores son algunos ejemplos de los sistemas que podemos encontrar en el mercado para gestionar un emprendimiento ganadero. Es destacable que la mayoría de ellos abarcan gran parte de las tareas de gestión de un campo tanto comercial como financieramente, y además permiten llevar una trazabilidad muy detallada de los animales. El sistema propuesto en este trabajo no apunta a ofrecer herramientas comerciales ni financieras para el manejo del campo como tampoco ofrece la posibilidad de llevar una trazabilidad de todos los eventos de la vida de los animales desde que nacen hasta que se venden o mueren, sino que la prioridad es encontrar y hacer visible al usuario final la relación existente entre el clima y los datos de producción obtenidos del campo. La principal idea detrás del desarrollo es que sea un sistema de pocas opciones, contundente a la hora de brindar información clara y específica, y que busca evitar, como primer impresión, una reacción de rechazo al utilizarlo; muchas veces los sistemas que están sobrecargados de tareas que se pueden hacer son evitados por los dueños de los campos debido a que les resulta muy difícil de utilizar.</p>
+</section>
+<section id="conclusion">
+<h2>Conclusión<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Las zonas áridas o semiáridas tienen bajos niveles de precipitaciones. Más aún, producto de la variabilidad climática, existen períodos secos donde estos niveles de lluvias decrecen por debajo de lo registrado históricamente. Las sequías son de carácter coyuntural (a diferencia de la aridez que es una característica estructural de un sistema), pero recurrente y su duración es variable (desde algunos meses hasta varios años). Son eventos hidrometeorológicos extremos con múltiples efectos negativos, que particularmente en lo agrario se relacionan con déficits de humedad del suelo e irrigación, disminución de pasturas y forrajes. La sequía tuvo relevancia porque generó alteraciones en los medios de vida, en función de sus consecuencias en el ámbito de la producción y del trabajo. Por los anteriores efectos, la sequía reduce la rentabilidad de la producción de carne y lana, al punto que algunos establecimientos no sólo no obtuvieron ganancias, sino que terminaron el ciclo productivo endeudados o habiendo perdido dinero (rentabilidad negativa). El cierre o el abandono de los campos fueron considerados, algunas veces, como un nuevo efecto directo de la sequía y, en otras ocasiones, como una consecuencia indirecta desencadenada de la menor rentabilidad. Se debe procurar apoyar el desarrollo rural, entregando mejor información al agricultor, brindandole conocimientos en prácticas agrícolas sustentables en el tiempo y generando aprendizaje en los administradores sobre sus sistemas que les permitan participar, crecer en la economía y adoptar tecnología, la cual no se ha logrado en la medida esperada debido a barreras como el arraigo cultural, el desconocimiento de la tecnología, la falta de mejores prácticas, la ausencia de capacitación y la creencia de que como se opera, es suficiente para tomar buenas decisiones.
+En este trabajo se realizó una propuesta de incorporación de tecnología de software a un segmento de productores del ámbito rural específico como es el sector ganadero ovino de la provincia del Chubut, con ella se espera poder plantar las bases para desarrollar un sistema informático que ayude a la gestión y toma de decisiones de los campos de producción ovina cuyas premisas sean tanto la facilidad de uso como la utilidad práctica a la hora de brindar información de calidad. Idealmente el sistema tendrá datos de producción del campo (información interna) y datos meteorológicos (información externa), todos almacenados en un mismo lugar (base de datos), y al combinarlos le brindará al productor información útil para poder tomar mejores decisiones aumentando la producción y la comercialización de sus productos. El sistema informático propuesto pretende incorporarse al conjunto de herramientas tecnológicas ya existentes que pueden estar al alcance de los dueños de campos ganaderos, brindando previsibilidad productiva que se traduce como maximización del uso de los recursos naturales del campo logrando un mejor manejo y administración de los mismos. Al utilizar este sistema el productor ganadero tendrá un mayor fortalecimiento comercial, mejoras en su relación con la tecnología y un conjunto de herramientas disponibles que servirán como soporte a la hora de afianzar las decisiones productivas del campo.
+Como punto final es importante mencionar que, acompañado al desarrollo de una aplicación de estas características, es posible pensar en una gran variedad trabajos e investigaciones que puedan no solo complementar el uso de este DSS sino también maximizar su potencial. Tales investigaciones podrían indagar en el uso de inteligencia artificial y machine learning no solo utilizando datos climáticos sino también datos productivos y datos relacionados al forraje de un campo brindando herramientas que mejoren la rentabilidad de los negocios realizados allí mismo.
+Además, en conjunto a la utilización de estos algoritmos es posible pensar en un escenario de simulación que involucre a todos los datos del sistema sumados a reglas de negocio establecidas por el productor y, de esta manera, le permitan obtener no solo mayor previsibilidad sino también analizar y mejorar sus procesos productivos. También es posible pensar en la creación de herramientas automatizadas encargadas del proceso de extracción, transformación y carga de los datos productivos y climáticos de un campo dentro del DSS evitando así la carga manual de los mismos por parte del productor.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./estructura"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="preliminares.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Preliminares</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="desarrollo.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Desarrollo</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Garibaldi Anele - Allende Lucila<br/>
+    
+        &copy; Derechos de autor 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

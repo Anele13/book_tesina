@@ -1,0 +1,2071 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Árbol de regresión Forraje &#8212; Tesina de Grado</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Análisis Forraje k-Nearest Neighbor" href="analisis_forraje_KNN.html" />
+    <link rel="prev" title="Desarrollo" href="../../estructura/desarrollo.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo_facultad.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tesina de Grado</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../estructura/intro.html">
+   Sistema de Información y Apoyo a la Producción Ovina de Baja Escala en Chubut
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../estructura/preliminares.html">
+   Preliminares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../estructura/marco_teorico.html">
+   Marco Teorico
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../estructura/desarrollo.html">
+   Desarrollo
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Árbol de regresión Forraje
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="analisis_forraje_KNN.html">
+     Análisis Forraje k-Nearest Neighbor
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/cuadernos_jupyter/forraje/analisis_forraje_arbol_regresion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/LucilaAllende/datos-tesina-2021"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/LucilaAllende/datos-tesina-2021/issues/new?title=Issue%20on%20page%20%2Fcuadernos_jupyter/forraje/analisis_forraje_arbol_regresion.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/LucilaAllende/datos-tesina-2021/master?urlpath=tree/docs/cuadernos_jupyter/forraje/analisis_forraje_arbol_regresion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#librerias">
+   Librerías
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datos">
+   Datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ajuste-del-modelo">
+   Ajuste del modelo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importancia-de-predictores">
+   Importancia de predictores
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#podado-del-arbol-pruning">
+   Podado del árbol (pruning)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Importancia de predictores
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediccion-y-evaluacion-del-modelo">
+   Predicción y evaluación del modelo
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metricas-utilizadas">
+     METRICAS UTILIZADAS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grafiquemos-los-resultados">
+     Grafiquemos los resultados
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vamos-a-probar-usando-las-tres-variables-mas-correlacionadas-con-el-vp">
+   VAMOS A PROBAR USANDO LAS TRES VARIABLES MAS CORRELACIONADAS CON EL
+   <em>
+    VP
+   </em>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     METRICAS UTILIZADAS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Grafiquemos los resultados
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vamos-a-probar-usando-el-agrupameiento-por-acumulado-de-lluvia-anual">
+   VAMOS A PROBAR USANDO EL AGRUPAMEIENTO POR ACUMULADO DE LLUVIA ANUAL
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     METRICAS UTILIZADAS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Grafiquemos los resultados
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparar-las-4-pruebas">
+   Comparar las 4 pruebas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion-hay-un-modelo-que-funciona-bien-pero-el-resto-funciona-maso-menos-debajo-del-50-lo-cual-no-esta-bueno-pero-todos-los-algoritmos-probados-probados-dan-una-precision-parecida">
+   Conclusión: Hay un modelo que funciona bien pero el resto funciona maso menos, debajo del 50%, lo cual no esta bueno pero todos los algoritmos probados probados dan una “precisión” parecida.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#el-modelo-que-funciona-bien-quizas-mejore-si-le-agregamos-los-200-datos-que-faltan">
+     El modelo que funciona bien quizas mejore si le agregamos los 200 datos que faltan
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Árbol de regresión Forraje</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#librerias">
+   Librerías
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datos">
+   Datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ajuste-del-modelo">
+   Ajuste del modelo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importancia-de-predictores">
+   Importancia de predictores
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#podado-del-arbol-pruning">
+   Podado del árbol (pruning)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Importancia de predictores
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediccion-y-evaluacion-del-modelo">
+   Predicción y evaluación del modelo
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metricas-utilizadas">
+     METRICAS UTILIZADAS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grafiquemos-los-resultados">
+     Grafiquemos los resultados
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vamos-a-probar-usando-las-tres-variables-mas-correlacionadas-con-el-vp">
+   VAMOS A PROBAR USANDO LAS TRES VARIABLES MAS CORRELACIONADAS CON EL
+   <em>
+    VP
+   </em>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     METRICAS UTILIZADAS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Grafiquemos los resultados
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vamos-a-probar-usando-el-agrupameiento-por-acumulado-de-lluvia-anual">
+   VAMOS A PROBAR USANDO EL AGRUPAMEIENTO POR ACUMULADO DE LLUVIA ANUAL
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     METRICAS UTILIZADAS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Grafiquemos los resultados
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparar-las-4-pruebas">
+   Comparar las 4 pruebas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion-hay-un-modelo-que-funciona-bien-pero-el-resto-funciona-maso-menos-debajo-del-50-lo-cual-no-esta-bueno-pero-todos-los-algoritmos-probados-probados-dan-una-precision-parecida">
+   Conclusión: Hay un modelo que funciona bien pero el resto funciona maso menos, debajo del 50%, lo cual no esta bueno pero todos los algoritmos probados probados dan una “precisión” parecida.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#el-modelo-que-funciona-bien-quizas-mejore-si-le-agregamos-los-200-datos-que-faltan">
+     El modelo que funciona bien quizas mejore si le agregamos los 200 datos que faltan
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="arbol-de-regresion-forraje">
+<h1>Árbol de regresión Forraje<a class="headerlink" href="#arbol-de-regresion-forraje" title="Permalink to this headline">¶</a></h1>
+<section id="librerias">
+<h2>Librerías<a class="headerlink" href="#librerias" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tratamiento de datos</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Gráficos</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Preprocesado y modelado</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">plot_tree</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">export_graphviz</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">export_text</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span><span class="p">,</span> <span class="n">explained_variance_score</span><span class="p">,</span> <span class="n">mean_absolute_error</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 12&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># Preprocesado y modelado</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="datos">
+<h2>Datos<a class="headerlink" href="#datos" title="Permalink to this headline">¶</a></h2>
+<p>El set de datos son las variables climaticas cerca de los puntos y el valor pastoral de cada punto. Se pretende ajustar un modelo de regresión que permita predecir el valor pastoral en función de las variables climaticas disponibles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;datos/csv/datos_forraje_3_sondas.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;codigo_gps&#39;</span><span class="p">,</span> <span class="s1">&#39;coordenada_completa&#39;</span><span class="p">,</span> <span class="s1">&#39;latitud&#39;</span><span class="p">,</span><span class="s1">&#39;longitug&#39;</span><span class="p">,</span> <span class="s1">&#39;dist_laguna_fría&#39;</span><span class="p">,</span><span class="s1">&#39;distancia_telsen&#39;</span><span class="p">,</span><span class="s1">&#39;dist_gastre&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">datos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>feacha</th>
+      <th>fn_valor_pastoral</th>
+      <th>sonda_cercana</th>
+      <th>sonda_real</th>
+      <th>acum_anual</th>
+      <th>acum_verano</th>
+      <th>tem_max</th>
+      <th>tem_min</th>
+      <th>tem_med</th>
+      <th>viento</th>
+      <th>humedad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>11/2015</td>
+      <td>3.6</td>
+      <td>Gastre</td>
+      <td>Laguna Fría</td>
+      <td>119.8</td>
+      <td>13.7</td>
+      <td>14.3</td>
+      <td>2.6</td>
+      <td>8.5</td>
+      <td>14.2</td>
+      <td>53.7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11/2015</td>
+      <td>0.6</td>
+      <td>Gastre</td>
+      <td>Laguna Fría</td>
+      <td>119.8</td>
+      <td>13.7</td>
+      <td>14.3</td>
+      <td>2.6</td>
+      <td>8.5</td>
+      <td>14.2</td>
+      <td>53.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>11/2015</td>
+      <td>1.6</td>
+      <td>Gastre</td>
+      <td>Laguna Fría</td>
+      <td>119.8</td>
+      <td>13.7</td>
+      <td>14.3</td>
+      <td>2.6</td>
+      <td>8.5</td>
+      <td>14.2</td>
+      <td>53.7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>11/2015</td>
+      <td>8.0</td>
+      <td>Gastre</td>
+      <td>Laguna Fría</td>
+      <td>119.8</td>
+      <td>13.7</td>
+      <td>14.3</td>
+      <td>2.6</td>
+      <td>8.5</td>
+      <td>14.2</td>
+      <td>53.7</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>11/2015</td>
+      <td>4.4</td>
+      <td>Gastre</td>
+      <td>Laguna Fría</td>
+      <td>119.8</td>
+      <td>13.7</td>
+      <td>14.3</td>
+      <td>2.6</td>
+      <td>8.5</td>
+      <td>14.2</td>
+      <td>53.7</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>01/2017</td>
+      <td>15.4</td>
+      <td>Telsen</td>
+      <td>Telsen</td>
+      <td>215.6</td>
+      <td>53.5</td>
+      <td>19.8</td>
+      <td>7.2</td>
+      <td>13.6</td>
+      <td>5.1</td>
+      <td>48.6</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>01/2017</td>
+      <td>11.2</td>
+      <td>Telsen</td>
+      <td>Telsen</td>
+      <td>215.6</td>
+      <td>53.5</td>
+      <td>19.8</td>
+      <td>7.2</td>
+      <td>13.6</td>
+      <td>5.1</td>
+      <td>48.6</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>01/2017</td>
+      <td>13.0</td>
+      <td>Telsen</td>
+      <td>Telsen</td>
+      <td>215.6</td>
+      <td>53.5</td>
+      <td>19.8</td>
+      <td>7.2</td>
+      <td>13.6</td>
+      <td>5.1</td>
+      <td>48.6</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>01/2017</td>
+      <td>11.4</td>
+      <td>Telsen</td>
+      <td>Telsen</td>
+      <td>215.6</td>
+      <td>53.5</td>
+      <td>19.8</td>
+      <td>7.2</td>
+      <td>13.6</td>
+      <td>5.1</td>
+      <td>48.6</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>01/2017</td>
+      <td>15.8</td>
+      <td>Telsen</td>
+      <td>Telsen</td>
+      <td>215.6</td>
+      <td>53.5</td>
+      <td>19.8</td>
+      <td>7.2</td>
+      <td>13.6</td>
+      <td>5.1</td>
+      <td>48.6</td>
+    </tr>
+  </tbody>
+</table>
+<p>200 rows × 11 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 200 entries, 0 to 199
+Data columns (total 11 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   feacha             200 non-null    object 
+ 1   fn_valor_pastoral  200 non-null    float64
+ 2   sonda_cercana      200 non-null    object 
+ 3   sonda_real         200 non-null    object 
+ 4   acum_anual         200 non-null    float64
+ 5   acum_verano        200 non-null    float64
+ 6   tem_max            200 non-null    float64
+ 7   tem_min            200 non-null    float64
+ 8   tem_med            200 non-null    float64
+ 9   viento             200 non-null    float64
+ 10  humedad            200 non-null    float64
+dtypes: float64(8), object(3)
+memory usage: 17.3+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ajuste-del-modelo">
+<h2>Ajuste del modelo<a class="headerlink" href="#ajuste-del-modelo" title="Permalink to this headline">¶</a></h2>
+<p>La clase DecisionTreeRegressor del módulo sklearn.tree permite entrenar árboles de decisión para problemas de regresión. A continuación, se ajusta un árbol de regresión empleando como variable respuesta <strong>valor pastoral</strong> y como predictores todas las otras variables disponibles.</p>
+<p>Como en todo estudio de regresión, no solo es importante ajustar el modelo, sino también cuantificar su capacidad para predecir nuevas observaciones. Para poder hacer la posterior evaluación, se dividen los datos en dos grupos, uno de entrenamiento y otro de test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># División de los datos en train y test</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+                                        <span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fn_valor_pastoral&quot;</span><span class="p">,</span> <span class="s2">&quot;feacha&quot;</span><span class="p">,</span><span class="s1">&#39;sonda_cercana&#39;</span><span class="p">,</span><span class="s1">&#39;sonda_real&#39;</span><span class="p">]),</span>
+                                        <span class="n">datos</span><span class="p">[</span><span class="s1">&#39;fn_valor_pastoral&#39;</span><span class="p">],</span>
+                                        <span class="n">random_state</span> <span class="o">=</span> <span class="mi">123</span>
+                                    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creación del modelo</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">modelo</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span>
+            <span class="n">max_depth</span>         <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="n">random_state</span>      <span class="o">=</span> <span class="mi">123</span>
+          <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Entrenamiento del modelo</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DecisionTreeRegressor(max_depth=3, random_state=123)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una vez entrenado el árbol, se puede representar mediante la combinación de las funciones plot_tree() y export_text(). La función plot_tree() dibuja la estructura del árbol y muestra el número de observaciones y valor medio de la variable respuesta en cada nodo. La función export_text() representa esta misma información en formato texto</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estructura del árbol creado</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Profundidad del árbol: </span><span class="si">{</span><span class="n">modelo</span><span class="o">.</span><span class="n">get_depth</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número de nodos terminales: </span><span class="si">{</span><span class="n">modelo</span><span class="o">.</span><span class="n">get_n_leaves</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plot</span> <span class="o">=</span> <span class="n">plot_tree</span><span class="p">(</span>
+            <span class="n">decision_tree</span> <span class="o">=</span> <span class="n">modelo</span><span class="p">,</span>
+            <span class="n">feature_names</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fn_valor_pastoral&quot;</span><span class="p">,</span> <span class="s2">&quot;feacha&quot;</span><span class="p">,</span><span class="s1">&#39;sonda_cercana&#39;</span><span class="p">,</span><span class="s1">&#39;sonda_real&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+            <span class="n">class_names</span>   <span class="o">=</span> <span class="s1">&#39;fn_valor_pastoral&#39;</span><span class="p">,</span>
+            <span class="n">filled</span>        <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">impurity</span>      <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">fontsize</span>      <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="n">precision</span>     <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="n">ax</span>            <span class="o">=</span> <span class="n">ax</span>
+       <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profundidad del árbol: 3
+Número de nodos terminales: 6
+</pre></div>
+</div>
+<img alt="../../_images/analisis_forraje_arbol_regresion_13_1.png" src="../../_images/analisis_forraje_arbol_regresion_13_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texto_modelo</span> <span class="o">=</span> <span class="n">export_text</span><span class="p">(</span>
+                    <span class="n">decision_tree</span> <span class="o">=</span> <span class="n">modelo</span><span class="p">,</span>
+                    <span class="n">feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fn_valor_pastoral&quot;</span><span class="p">,</span> <span class="s2">&quot;feacha&quot;</span><span class="p">,</span> <span class="s1">&#39;sonda_cercana&#39;</span><span class="p">,</span><span class="s1">&#39;sonda_real&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+               <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">texto_modelo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|--- acum_anual &lt;= 185.20
+|   |--- viento &lt;= 5.70
+|   |   |--- value: [11.60]
+|   |--- viento &gt;  5.70
+|   |   |--- tem_med &lt;= 8.80
+|   |   |   |--- value: [2.29]
+|   |   |--- tem_med &gt;  8.80
+|   |   |   |--- value: [5.84]
+|--- acum_anual &gt;  185.20
+|   |--- acum_anual &lt;= 211.25
+|   |   |--- value: [15.26]
+|   |--- acum_anual &gt;  211.25
+|   |   |--- acum_anual &lt;= 296.10
+|   |   |   |--- value: [12.34]
+|   |   |--- acum_anual &gt;  296.10
+|   |   |   |--- value: [11.23]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Siguiendo la rama más a la izquierda del árbol, puede verse que el modelo predice un VP de 5.65  a partir de acum_anual &lt;= 185.20, viento &gt; 5.70, acum_anual &gt; 131.05 y un viento &gt; 9.15.</p>
+</section>
+<section id="importancia-de-predictores">
+<h2>Importancia de predictores<a class="headerlink" href="#importancia-de-predictores" title="Permalink to this headline">¶</a></h2>
+<p>La importancia de cada predictor en el modelo se calcula como la reducción total (normalizada) en el criterio de división, en este caso el mse, que consigue el predictor en las divisiones en las que participa. Si un predictor no ha sido seleccionado en ninguna divisón, no se ha incluido en el modelo y por lo tanto su importancia es 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">importancia_predictores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                            <span class="p">{</span><span class="s1">&#39;predictor&#39;</span><span class="p">:</span> <span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fn_valor_pastoral&quot;</span><span class="p">,</span> <span class="s2">&quot;feacha&quot;</span><span class="p">,</span> <span class="s1">&#39;sonda_cercana&#39;</span><span class="p">,</span><span class="s1">&#39;sonda_real&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+                             <span class="s1">&#39;importancia&#39;</span><span class="p">:</span> <span class="n">modelo</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">}</span>
+                            <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Importancia de los predictores en el modelo&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------------------------&quot;</span><span class="p">)</span>
+<span class="n">importancia_predictores</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;importancia&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importancia de los predictores en el modelo
+-------------------------------------------
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>predictor</th>
+      <th>importancia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>acum_anual</td>
+      <td>0.790233</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>viento</td>
+      <td>0.132940</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>tem_med</td>
+      <td>0.076827</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>acum_verano</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>tem_max</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>tem_min</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>humedad</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>El predictor acum_anual, los mm de lluvia acumulados en el año, ha resultado ser el predictor más importante en el modelo, seguido el viento.</p>
+</section>
+<section id="podado-del-arbol-pruning">
+<h2>Podado del árbol (pruning)<a class="headerlink" href="#podado-del-arbol-pruning" title="Permalink to this headline">¶</a></h2>
+<p>Con la finalidad de reducir la varianza del modelo y así mejorar la capacidad predictiva, se somete al árbol a un proceso de pruning. Para aplicar el proceso de pruning es necesario indicar el argumento ccp_alpha que determina el grado de penalización por complejidad. Cuanto mayor es este valor, más agresivo el podado y menor el tamaño del árbol resultante.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pruning (const complexity pruning) por validación cruzada</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Valores de ccp_alpha evaluados</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ccp_alpha&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">20</span><span class="p">)}</span>
+
+<span class="c1"># Búsqueda por validación cruzada</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span>
+        <span class="c1"># El árbol se crece al máximo posible para luego aplicar el pruning</span>
+        <span class="n">estimator</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span>
+                            <span class="n">max_depth</span>         <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                            <span class="n">min_samples_split</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+                            <span class="n">min_samples_leaf</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                            <span class="n">random_state</span>      <span class="o">=</span> <span class="mi">123</span>
+                       <span class="p">),</span>
+        <span class="n">param_grid</span> <span class="o">=</span> <span class="n">param_grid</span><span class="p">,</span>
+        <span class="n">cv</span>         <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="n">refit</span>      <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">return_train_score</span> <span class="o">=</span> <span class="kc">True</span>
+      <span class="p">)</span>
+
+<span class="n">grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">3.84</span><span class="p">))</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
+<span class="n">scores</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;param_ccp_alpha&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean_train_score&#39;</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="s1">&#39;std_train_score&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">scores</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;param_ccp_alpha&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="s1">&#39;std_test_score&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Error de validacion cruzada vs hiperparámetro ccp_alpha&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/analisis_forraje_arbol_regresion_22_0.png" src="../../_images/analisis_forraje_arbol_regresion_22_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mejor valor ccp_alpha encontrado</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">best_params_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;ccp_alpha&#39;: 0.0}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una vez identificado el valor óptimo de ccp_alpha, se reentrena el árbol indicando este valor en sus argumentos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estructura del árbol final</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">modelo_final</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Profundidad del árbol: </span><span class="si">{</span><span class="n">modelo_final</span><span class="o">.</span><span class="n">get_depth</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número de nodos terminales: </span><span class="si">{</span><span class="n">modelo_final</span><span class="o">.</span><span class="n">get_n_leaves</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">plot_tree</span><span class="p">(</span>
+            <span class="n">decision_tree</span> <span class="o">=</span> <span class="n">modelo_final</span><span class="p">,</span>
+            <span class="n">feature_names</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fn_valor_pastoral&quot;</span><span class="p">,</span> <span class="s2">&quot;feacha&quot;</span><span class="p">,</span> <span class="s1">&#39;sonda_cercana&#39;</span><span class="p">,</span><span class="s1">&#39;sonda_real&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+            <span class="n">class_names</span>   <span class="o">=</span> <span class="s1">&#39;fn_valor_pastoral&quot;&#39;</span><span class="p">,</span>
+            <span class="n">filled</span>        <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">impurity</span>      <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">ax</span>            <span class="o">=</span> <span class="n">ax</span>
+       <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profundidad del árbol: 4
+Número de nodos terminales: 8
+</pre></div>
+</div>
+<img alt="../../_images/analisis_forraje_arbol_regresion_25_1.png" src="../../_images/analisis_forraje_arbol_regresion_25_1.png" />
+</div>
+</div>
+<p>El proceso de pruning a identificado como mejor árbol uno mucho más grande que el modelo inicialmente entrenado.</p>
+</section>
+<section id="id1">
+<h2>Importancia de predictores<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">importancia_predictores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                            <span class="p">{</span><span class="s1">&#39;predictor&#39;</span><span class="p">:</span> <span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fn_valor_pastoral&quot;</span><span class="p">,</span> <span class="s2">&quot;feacha&quot;</span><span class="p">,</span> <span class="s1">&#39;sonda_cercana&#39;</span><span class="p">,</span><span class="s1">&#39;sonda_real&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+                             <span class="s1">&#39;importancia&#39;</span><span class="p">:</span> <span class="n">modelo_final</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">}</span>
+                            <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Importancia de los predictores en el modelo&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------------------------&quot;</span><span class="p">)</span>
+<span class="n">importancia_predictores</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;importancia&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importancia de los predictores en el modelo
+-------------------------------------------
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>predictor</th>
+      <th>importancia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>acum_anual</td>
+      <td>0.785281</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>viento</td>
+      <td>0.138494</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>tem_med</td>
+      <td>0.076224</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>acum_verano</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>tem_max</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>tem_min</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>humedad</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="prediccion-y-evaluacion-del-modelo">
+<h2>Predicción y evaluación del modelo<a class="headerlink" href="#prediccion-y-evaluacion-del-modelo" title="Permalink to this headline">¶</a></h2>
+<p>Por último, se evalúa la capacidad predictiva del primer árbol y del árbol final empleando el conjunto de test.</p>
+<section id="metricas-utilizadas">
+<h3>METRICAS UTILIZADAS<a class="headerlink" href="#metricas-utilizadas" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><em>Varianza explicada</em>: Representa el porcentaje de la varianza de la variable de salida que es explicado por el modelo. O sea esta métrica evalúa la variación o dispersión de los puntos de datos. <strong>explained_variance_score</strong> La mejor puntuación posible es 1.0,los valores más bajos son peores.</p></li>
+<li><p><em>Error medio absoluto</em>: Es la media de las diferencias absolutas entre el valor objetivo y el predicho. Al no elevar al cuadrado, no penaliza los errores grandes, lo que la hace no muy sensible a valores anómalos, por lo que no es una métrica recomendable en modelos en los que se deba prestar atención a éstos. <strong>mean_absolute_error MAE</strong> Mientras mas cercano a cero mejor.</p></li>
+<li><p><em>Error cuadrático medio</em>: Es simplemente la media de las diferencias entre el valor objetivo y el predicho al cuadrado. Al elevar al cuadrado los errores, magnifica los errores grandes, por lo que hay que utilizarla con cuidado cuando tenemos valores anómalos en nuestro conjunto de datos. <strong>mean_squared_error MSE</strong> Mientras mas cercano a cero mejor. Las unidades de la puntuación de error coinciden con las unidades del valor objetivo que se predice.</p></li>
+<li><p><em>Raíz cuadrada de la media del error al cuadrado</em>: Es igual a la raíz cuadrada de la métrica anterior. La ventaja de esta métrica es que presenta el error en las mismas unidades que la variable objetivo, lo que la hace más fácil de entender. <strong>RMSE</strong>. Mientras mas cercano a cero mejor. Las unidades de la puntuación de error coinciden con las unidades del valor objetivo que se predice.</p></li>
+<li><p><em>R cuadrado</em>: también llamado coeficiente de determinación. Esta métrica difiere de las anteriores, ya que compara nuestro modelo con un modelo básico que siempre devuelve como predicción la media de los valores objetivo de entrenamiento. La comparación entre estos dos modelos se realiza en base a la media de los errores al cuadrado de cada modelo. Los valores que puede tomar esta métrica van desde menos infinito a 1. <strong>r2_score R2</strong> Cuanto más cercano a 1 sea el valor de esta métrica, mejor será nuestro modelo. El coeficiente de determinación, también llamado R cuadrado, refleja la bondad del ajuste de un modelo a la variable que pretender explicar. Es importante saber que el resultado del coeficiente de determinación oscila entre 0 y 1. Cuanto más cerca de 1 se sitúe su valor, mayor será el ajuste del modelo a la variable que estamos intentando explicar. De forma inversa, cuanto más cerca de cero, menos ajustado estará el modelo y, por tanto, menos fiable será.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Error de test del modelo inicial</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="n">predicciones</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span>
+        <span class="n">y_true</span>  <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span>
+        <span class="n">y_pred</span>  <span class="o">=</span> <span class="n">predicciones</span><span class="p">,</span>
+        <span class="n">squared</span> <span class="o">=</span> <span class="kc">False</span>
+       <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El error (rmse) de test es: </span><span class="si">{</span><span class="n">rmse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precisión del modelo entrenamiento:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">modelo</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precisión del modelo test:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">modelo</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Varianza Explicada:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">explained_variance_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MAE:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MSE:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RMSE:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R2:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El error (rmse) de test es: 4.3067943677437714
+Precisión del modelo entrenamiento:
+0.4792%
+Precisión del modelo test:
+0.3652%
+Varianza Explicada:
+0.3731
+MAE:
+3.2737
+MSE:
+18.5485
+RMSE:
+4.3068
+R2:
+0.3652
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>La Varianza Explicada es de 0.3731, o sea 0.37. ¿Qué significa esto? Qué los datos están dispersos un 37%, y al tener un valor por debajo de 1.0, es una metrica baja.</p></li>
+<li><p>El Error medio absoluto (MAE) es de 3.2737, o sea 3.27. ¿Qué significa esto? Qué en promedio se equivoca 3.27 unidades en el valor real del VP de un punto. Considerando que el valor pastoral medido en las muestras va de 0.0 a 29.40, entonces 3.27 es medianamente aceptable. Y 3.27 está bastante cerca de 0, lo cual es bueno.</p></li>
+<li><p>Error cuadrático medio (MSE) es de 18.5485, o sea 18.54. ¿Qué significa esto? Qué en promedio se equivoca 18.54 unidades en el valor real del VP de un punto. Considerando que el valor pastoral medido en las muestras va de 0.0 a 29.40, entonces 18.54 no es para nada aceptable. Y 18.54 muy está lejos de 0, lo cual es malo.</p></li>
+<li><p>La Raíz cuadrada del Error cuadrático medio (RMSE) es de 4.3068, o sea 4.31. ¿Qué significa esto? Qué en promedio se equivoca 4.31 unidades en el valor real del VP de un punto. Considerando que el valor pastoral medido en las muestras va de 0.0 a 29.40, entonces 4.31 es medianamente aceptable. Y 4.31 está bastante cerca de 0, lo cual es bueno.</p></li>
+<li><p>El coeficiente de determinación (R2) es de 0.3652, o sea 0.36. ¿Qué significa esto? Qué el ajuste, según el cálculo del R cuadrado, es de 0.36. Esto quiere decir que es un modelo cuyas estimaciones se ajustan maso menos a la variable real. Aunque técnicamente no sería correcto, podríamos decir algo así como que el modelo explica en un 36% a la variable real, o que la calidad del modelo es del 36% o que el rendimiento del modelo es del 36%.</p></li>
+</ul>
+<br/>
+<ul class="simple">
+<li><p>La Precisión del modelo en el entrenamiento es de 0.4792%%, o sea 48%. ¿Qué significa esto? No sé, porque no compara los valores observados con los predichos como las otras metricas.</p></li>
+<li><p>La Precisión del modelo en el test es de 0.3652%, o sea 36%. ¿Qué significa esto? No sé, porque no compara los valores observados con los predichos como las otras metricas.</p></li>
+</ul>
+<p><strong>La funcion score() para datos de test y r2_score, dan el mismo resultado. Lo cual coincide con lo que dijo Anele, ambos serian el coeficiente de determinacion.</strong></p>
+<p><em>Pero la funcion score() para datos de train, que es como la tome del ejemplo original de regresión multiple (predecir lana a partir de lluvia del dique y cantidad de animales), no sé que signifique.</em></p>
+<p>CONCLUSIÓN: La palabra precisión no es la correcta me parece</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Error de test del modelo final (tras aplicar pruning)</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="n">predicciones_final</span> <span class="o">=</span> <span class="n">modelo_final</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span>
+        <span class="n">y_true</span>  <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span>
+        <span class="n">y_pred</span>  <span class="o">=</span> <span class="n">predicciones</span><span class="p">,</span>
+        <span class="n">squared</span> <span class="o">=</span> <span class="kc">False</span>
+       <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El error (rmse) de test es: </span><span class="si">{</span><span class="n">rmse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precisión del modelo entrenamiento:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">modelo_final</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precisión del modelo test:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">modelo_final</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Varianza Explicada:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">explained_variance_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones_final</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MAE:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones_final</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MSE:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones_final</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RMSE:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones_final</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R2:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones_final</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El error (rmse) de test es: 4.3067943677437714
+Precisión del modelo entrenamiento:
+0.483%
+Precisión del modelo test:
+0.3576%
+Varianza Explicada:
+0.368
+MAE:
+3.27
+MSE:
+18.7708
+RMSE:
+4.3325
+R2:
+0.3576
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>La Varianza Explicada es de 0.368, o sea 0.37. ¿Qué significa esto? Qué los datos están dispersos un 37%, y al tener un valor por debajo de 1.0, es una metrica baja.</p></li>
+<li><p>El Error medio absoluto (MAE) es de 3.27, o sea 3.27. ¿Qué significa esto? Qué en promedio se equivoca 3.27 unidades en el valor real del VP de un punto. Considerando que el valor pastoral medido en las muestras va de 0.0 a 29.40, entonces 3.27 es medianamente aceptable. Y 3.27 está bastante cerca de 0, lo cual es bueno.</p></li>
+<li><p>Error cuadrático medio (MSE) es de 18.7708, o sea 18.77. ¿Qué significa esto? Qué en promedio se equivoca 18.77 unidades en el valor real del VP de un punto. Considerando que el valor pastoral medido en las muestras va de 0.0 a 29.40, entonces 18.77 no es para nada aceptable. Y 18.77 muy está lejos de 0, lo cual es malo.</p></li>
+<li><p>La Raíz cuadrada del Error cuadrático medio (RMSE) es de 4.3325, o sea 4.33. ¿Qué significa esto? Qué en promedio se equivoca 4.33 unidades en el valor real del VP de un punto. Considerando que el valor pastoral medido en las muestras va de 0.0 a 29.40, entonces 4.33 es medianamente aceptable. Y 4.33 está bastante cerca de 0, lo cual es bueno.</p></li>
+<li><p>El coeficiente de determinación (R2) es de 0.3576, o sea 0.36. ¿Qué significa esto? Qué el ajuste, según el cálculo del R cuadrado, es de 0.36. Esto quiere decir que es un modelo cuyas estimaciones se ajustan maso menos a la variable real. Aunque técnicamente no sería correcto, podríamos decir algo así como que el modelo explica en un 36% a la variable real, o que la calidad del modelo es del 36% o que el rendimiento del modelo es del 36%.</p></li>
+</ul>
+<br/>
+<ul class="simple">
+<li><p>La Precisión del modelo en el entrenamiento es de 0.483%%, o sea 48%. ¿Qué significa esto? No sé, porque no compara los valores observados con los predichos como las otras metricas.</p></li>
+<li><p>La Precisión del modelo en el test es de 0.3576%, o sea 36%. ¿Qué significa esto? No sé, porque no compara los valores observados con los predichos como las otras metricas.</p></li>
+</ul>
+<p><strong>La funcion score() para datos de test y r2_score, dan el mismo resultado. Lo cual coincide con lo que dijo Anele, ambos serian el coeficiente de determinacion.</strong></p>
+<p><em>Pero la funcion score() para datos de train, que es como la tome del ejemplo original de regresión multiple (predecir lana a partir de lluvia del dique y cantidad de animales), no sé que signifique.</em></p>
+<p>CONCLUSIÓN: La palabra precisión no es la correcta me parece</p>
+</section>
+<section id="grafiquemos-los-resultados">
+<h3>Grafiquemos los resultados<a class="headerlink" href="#grafiquemos-los-resultados" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)),</span><span class="n">y_test</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Real&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">predicciones</span><span class="p">)),</span><span class="n">predicciones</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Prediccion&quot;</span><span class="p">)</span>
+ <span class="c1">#Mostrar imagen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;muestras&#39;</span><span class="p">)</span>
+<span class="c1"># Set the y axis label of the current axis.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;valor pastoral&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Modelo 1&quot;</span><span class="p">)</span>
+<span class="c1"># Set a title of the current axe</span>
+<span class="c1"># show a legend on the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="c1"># Display a figure.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/analisis_forraje_arbol_regresion_37_0.png" src="../../_images/analisis_forraje_arbol_regresion_37_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)),</span><span class="n">y_test</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Real&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">predicciones_final</span><span class="p">)),</span><span class="n">predicciones_final</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Prediccion&quot;</span><span class="p">)</span>
+ <span class="c1">#Mostrar imagen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;muestras&#39;</span><span class="p">)</span>
+<span class="c1"># Set the y axis label of the current axis.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;valor pastoral&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Modelo 2&quot;</span><span class="p">)</span>
+<span class="c1"># Set a title of the current axe</span>
+<span class="c1"># show a legend on the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="c1"># Display a figure.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/analisis_forraje_arbol_regresion_38_0.png" src="../../_images/analisis_forraje_arbol_regresion_38_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="vamos-a-probar-usando-las-tres-variables-mas-correlacionadas-con-el-vp">
+<h2>VAMOS A PROBAR USANDO LAS TRES VARIABLES MAS CORRELACIONADAS CON EL <em>VP</em><a class="headerlink" href="#vamos-a-probar-usando-las-tres-variables-mas-correlacionadas-con-el-vp" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># División de los datos en train y test</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+                                        <span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fn_valor_pastoral&quot;</span><span class="p">,</span> <span class="s2">&quot;feacha&quot;</span><span class="p">,</span><span class="s1">&#39;sonda_cercana&#39;</span><span class="p">,</span><span class="s1">&#39;sonda_real&#39;</span><span class="p">,</span><span class="s1">&#39;viento&#39;</span><span class="p">,</span><span class="s1">&#39;tem_max&#39;</span><span class="p">,</span><span class="s1">&#39;tem_med&#39;</span><span class="p">]),</span>
+                                        <span class="n">datos</span><span class="p">[</span><span class="s1">&#39;fn_valor_pastoral&#39;</span><span class="p">],</span>
+                                        <span class="n">random_state</span> <span class="o">=</span> <span class="mi">123</span>
+                                    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creación del modelo</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">modelo3</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span>
+            <span class="n">max_depth</span>         <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="n">random_state</span>      <span class="o">=</span> <span class="mi">123</span>
+          <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Entrenamiento del modelo</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">modelo3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DecisionTreeRegressor(max_depth=4, random_state=123)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estructura del árbol creado</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Profundidad del árbol: </span><span class="si">{</span><span class="n">modelo3</span><span class="o">.</span><span class="n">get_depth</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número de nodos terminales: </span><span class="si">{</span><span class="n">modelo3</span><span class="o">.</span><span class="n">get_n_leaves</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plot</span> <span class="o">=</span> <span class="n">plot_tree</span><span class="p">(</span>
+            <span class="n">decision_tree</span> <span class="o">=</span> <span class="n">modelo3</span><span class="p">,</span>
+            <span class="n">feature_names</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fn_valor_pastoral&quot;</span><span class="p">,</span> <span class="s2">&quot;feacha&quot;</span><span class="p">,</span><span class="s1">&#39;sonda_cercana&#39;</span><span class="p">,</span><span class="s1">&#39;sonda_real&#39;</span><span class="p">,</span><span class="s1">&#39;viento&#39;</span><span class="p">,</span><span class="s1">&#39;tem_max&#39;</span><span class="p">,</span><span class="s1">&#39;tem_med&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+            <span class="n">class_names</span>   <span class="o">=</span> <span class="s1">&#39;fn_valor_pastoral&#39;</span><span class="p">,</span>
+            <span class="n">filled</span>        <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">impurity</span>      <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">fontsize</span>      <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="n">precision</span>     <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="n">ax</span>            <span class="o">=</span> <span class="n">ax</span>
+       <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profundidad del árbol: 4
+Número de nodos terminales: 8
+</pre></div>
+</div>
+<img alt="../../_images/analisis_forraje_arbol_regresion_43_1.png" src="../../_images/analisis_forraje_arbol_regresion_43_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">importancia_predictores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                            <span class="p">{</span><span class="s1">&#39;predictor&#39;</span><span class="p">:</span> <span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fn_valor_pastoral&quot;</span><span class="p">,</span> <span class="s2">&quot;feacha&quot;</span><span class="p">,</span><span class="s1">&#39;sonda_cercana&#39;</span><span class="p">,</span><span class="s1">&#39;sonda_real&#39;</span><span class="p">,</span><span class="s1">&#39;viento&#39;</span><span class="p">,</span><span class="s1">&#39;tem_max&#39;</span><span class="p">,</span><span class="s1">&#39;tem_med&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+                             <span class="s1">&#39;importancia&#39;</span><span class="p">:</span> <span class="n">modelo3</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">}</span>
+                            <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Importancia de los predictores en el modelo&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------------------------&quot;</span><span class="p">)</span>
+<span class="n">importancia_predictores</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;importancia&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importancia de los predictores en el modelo
+-------------------------------------------
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>predictor</th>
+      <th>importancia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>acum_anual</td>
+      <td>0.914351</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>humedad</td>
+      <td>0.085649</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>acum_verano</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>tem_min</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="id2">
+<h3>METRICAS UTILIZADAS<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><em>Varianza explicada</em>: Representa el porcentaje de la varianza de la variable de salida que es explicado por el modelo. O sea esta métrica evalúa la variación o dispersión de los puntos de datos. <strong>explained_variance_score</strong> La mejor puntuación posible es 1.0,los valores más bajos son peores.</p></li>
+<li><p><em>Error medio absoluto</em>: Es la media de las diferencias absolutas entre el valor objetivo y el predicho. Al no elevar al cuadrado, no penaliza los errores grandes, lo que la hace no muy sensible a valores anómalos, por lo que no es una métrica recomendable en modelos en los que se deba prestar atención a éstos. <strong>mean_absolute_error MAE</strong> Mientras mas cercano a cero mejor.</p></li>
+<li><p><em>Error cuadrático medio</em>: Es simplemente la media de las diferencias entre el valor objetivo y el predicho al cuadrado. Al elevar al cuadrado los errores, magnifica los errores grandes, por lo que hay que utilizarla con cuidado cuando tenemos valores anómalos en nuestro conjunto de datos. <strong>mean_squared_error MSE</strong> Mientras mas cercano a cero mejor. Las unidades de la puntuación de error coinciden con las unidades del valor objetivo que se predice.</p></li>
+<li><p><em>Raíz cuadrada de la media del error al cuadrado</em>: Es igual a la raíz cuadrada de la métrica anterior. La ventaja de esta métrica es que presenta el error en las mismas unidades que la variable objetivo, lo que la hace más fácil de entender. <strong>RMSE</strong>. Mientras mas cercano a cero mejor. Las unidades de la puntuación de error coinciden con las unidades del valor objetivo que se predice.</p></li>
+<li><p><em>R cuadrado</em>: también llamado coeficiente de determinación. Esta métrica difiere de las anteriores, ya que compara nuestro modelo con un modelo básico que siempre devuelve como predicción la media de los valores objetivo de entrenamiento. La comparación entre estos dos modelos se realiza en base a la media de los errores al cuadrado de cada modelo. Los valores que puede tomar esta métrica van desde menos infinito a 1. <strong>r2_score R2</strong> Cuanto más cercano a 1 sea el valor de esta métrica, mejor será nuestro modelo. El coeficiente de determinación, también llamado R cuadrado, refleja la bondad del ajuste de un modelo a la variable que pretender explicar. Es importante saber que el resultado del coeficiente de determinación oscila entre 0 y 1. Cuanto más cerca de 1 se sitúe su valor, mayor será el ajuste del modelo a la variable que estamos intentando explicar. De forma inversa, cuanto más cerca de cero, menos ajustado estará el modelo y, por tanto, menos fiable será.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Error de test del modelo inicial</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="n">predicciones</span> <span class="o">=</span> <span class="n">modelo3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span>
+        <span class="n">y_true</span>  <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span>
+        <span class="n">y_pred</span>  <span class="o">=</span> <span class="n">predicciones</span><span class="p">,</span>
+        <span class="n">squared</span> <span class="o">=</span> <span class="kc">False</span>
+       <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El error (rmse) de test es: </span><span class="si">{</span><span class="n">rmse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precisión del modelo entrenamiento:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">modelo3</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precisión del modelo test:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">modelo3</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Varianza Explicada:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">explained_variance_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MAE:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MSE:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RMSE:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R2:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El error (rmse) de test es: 4.33252801895408
+Precisión del modelo entrenamiento:
+0.483%
+Precisión del modelo test:
+0.3576%
+Varianza Explicada:
+0.368
+MAE:
+3.27
+MSE:
+18.7708
+RMSE:
+4.3325
+R2:
+0.3576
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>La Varianza Explicada es de 0.368, o sea 0.37. ¿Qué significa esto? Qué los datos están dispersos un 37%, y al tener un valor por debajo de 1.0, es una metrica baja.</p></li>
+<li><p>El Error medio absoluto (MAE) es de 3.27, o sea 3.27. ¿Qué significa esto? Qué en promedio se equivoca 3.27 unidades en el valor real del VP de un punto. Considerando que el valor pastoral medido en las muestras va de 0.0 a 29.40, entonces 3.27 es medianamente aceptable. Y 3.27 está bastante cerca de 0, lo cual es bueno.</p></li>
+<li><p>Error cuadrático medio (MSE) es de 18.7708, o sea 18.77. ¿Qué significa esto? Qué en promedio se equivoca 18.77 unidades en el valor real del VP de un punto. Considerando que el valor pastoral medido en las muestras va de 0.0 a 29.40, entonces 18.77 no es para nada aceptable. Y 18.77 muy está lejos de 0, lo cual es malo.</p></li>
+<li><p>La Raíz cuadrada del Error cuadrático medio (RMSE) es de 4.3325, o sea 4.33. ¿Qué significa esto? Qué en promedio se equivoca 4.33 unidades en el valor real del VP de un punto. Considerando que el valor pastoral medido en las muestras va de 0.0 a 29.40, entonces 4.33 es medianamente aceptable. Y 4.33 está bastante cerca de 0, lo cual es bueno.</p></li>
+<li><p>El coeficiente de determinación (R2) es de 0.3576, o sea 0.36. ¿Qué significa esto? Qué el ajuste, según el cálculo del R cuadrado, es de 0.36. Esto quiere decir que es un modelo cuyas estimaciones se ajustan maso menos a la variable real. Aunque técnicamente no sería correcto, podríamos decir algo así como que el modelo explica en un 36% a la variable real, o que la calidad del modelo es del 36% o que el rendimiento del modelo es del 36%.</p></li>
+</ul>
+<br/>
+<ul class="simple">
+<li><p>La Precisión del modelo en el entrenamiento es de 0.483%%, o sea 48%. ¿Qué significa esto? No sé, porque no compara los valores observados con los predichos como las otras metricas.</p></li>
+<li><p>La Precisión del modelo en el test es de 0.3576%, o sea 36%. ¿Qué significa esto? No sé, porque no compara los valores observados con los predichos como las otras metricas.</p></li>
+</ul>
+<p><strong>La funcion score() para datos de test y r2_score, dan el mismo resultado. Lo cual coincide con lo que dijo Anele, ambos serian el coeficiente de determinacion.</strong></p>
+<p><em>Pero la funcion score() para datos de train, que es como la tome del ejemplo original de regresión multiple (predecir lana a partir de lluvia del dique y cantidad de animales), no sé que signifique.</em></p>
+<p>CONCLUSIÓN: La palabra precisión no es la correcta me parece</p>
+</section>
+<section id="id3">
+<h3>Grafiquemos los resultados<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)),</span><span class="n">y_test</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Real&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">predicciones</span><span class="p">)),</span><span class="n">predicciones</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Prediccion&quot;</span><span class="p">)</span>
+ <span class="c1">#Mostrar imagen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;muestras&#39;</span><span class="p">)</span>
+<span class="c1"># Set the y axis label of the current axis.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;valor pastoral&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Modelo 3&quot;</span><span class="p">)</span>
+<span class="c1"># Set a title of the current axe</span>
+<span class="c1"># show a legend on the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="c1"># Display a figure.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/analisis_forraje_arbol_regresion_49_0.png" src="../../_images/analisis_forraje_arbol_regresion_49_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="vamos-a-probar-usando-el-agrupameiento-por-acumulado-de-lluvia-anual">
+<h2>VAMOS A PROBAR USANDO EL AGRUPAMEIENTO POR ACUMULADO DE LLUVIA ANUAL<a class="headerlink" href="#vamos-a-probar-usando-el-agrupameiento-por-acumulado-de-lluvia-anual" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;acum_anual&#39;</span><span class="p">,</span><span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>acum_anual</th>
+      <th>fn_valor_pastoral</th>
+      <th>acum_verano</th>
+      <th>tem_max</th>
+      <th>tem_min</th>
+      <th>tem_med</th>
+      <th>viento</th>
+      <th>humedad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>119.8</td>
+      <td>2.245161</td>
+      <td>13.7</td>
+      <td>14.3</td>
+      <td>2.6</td>
+      <td>8.5</td>
+      <td>14.2</td>
+      <td>53.7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>142.3</td>
+      <td>5.865000</td>
+      <td>13.7</td>
+      <td>14.3</td>
+      <td>3.9</td>
+      <td>9.1</td>
+      <td>12.0</td>
+      <td>52.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>156.1</td>
+      <td>11.540000</td>
+      <td>42.3</td>
+      <td>19.8</td>
+      <td>7.2</td>
+      <td>13.6</td>
+      <td>5.1</td>
+      <td>48.6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>160.7</td>
+      <td>1.200000</td>
+      <td>42.3</td>
+      <td>20.0</td>
+      <td>7.3</td>
+      <td>13.6</td>
+      <td>6.3</td>
+      <td>40.9</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>163.5</td>
+      <td>6.700000</td>
+      <td>42.3</td>
+      <td>20.0</td>
+      <td>7.3</td>
+      <td>13.6</td>
+      <td>6.3</td>
+      <td>40.9</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>206.9</td>
+      <td>15.200000</td>
+      <td>53.5</td>
+      <td>19.8</td>
+      <td>7.2</td>
+      <td>13.6</td>
+      <td>5.1</td>
+      <td>48.6</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>215.6</td>
+      <td>11.155556</td>
+      <td>53.5</td>
+      <td>19.8</td>
+      <td>7.2</td>
+      <td>13.6</td>
+      <td>5.1</td>
+      <td>48.6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>288.1</td>
+      <td>12.348387</td>
+      <td>58.2</td>
+      <td>14.3</td>
+      <td>3.9</td>
+      <td>9.1</td>
+      <td>12.0</td>
+      <td>52.1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>304.1</td>
+      <td>10.687805</td>
+      <td>58.2</td>
+      <td>14.3</td>
+      <td>3.9</td>
+      <td>9.1</td>
+      <td>12.0</td>
+      <td>52.1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># División de los datos en train y test</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+                                        <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fn_valor_pastoral&quot;</span><span class="p">,</span><span class="s1">&#39;tem_max&#39;</span><span class="p">,</span><span class="s1">&#39;tem_med&#39;</span><span class="p">]),</span>
+                                        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;fn_valor_pastoral&#39;</span><span class="p">],</span>
+                                        <span class="n">random_state</span> <span class="o">=</span> <span class="mi">123</span>
+                                    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creación del modelo</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">modelo4</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span>
+            <span class="n">max_depth</span>         <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="n">random_state</span>      <span class="o">=</span> <span class="mi">123</span>
+          <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Entrenamiento del modelo</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">modelo4</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DecisionTreeRegressor(max_depth=4, random_state=123)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estructura del árbol creado</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Profundidad del árbol: </span><span class="si">{</span><span class="n">modelo4</span><span class="o">.</span><span class="n">get_depth</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número de nodos terminales: </span><span class="si">{</span><span class="n">modelo4</span><span class="o">.</span><span class="n">get_n_leaves</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plot</span> <span class="o">=</span> <span class="n">plot_tree</span><span class="p">(</span>
+            <span class="n">decision_tree</span> <span class="o">=</span> <span class="n">modelo4</span><span class="p">,</span>
+            <span class="n">feature_names</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fn_valor_pastoral&quot;</span><span class="p">,</span><span class="s1">&#39;tem_max&#39;</span><span class="p">,</span><span class="s1">&#39;tem_med&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+            <span class="n">class_names</span>   <span class="o">=</span> <span class="s1">&#39;fn_valor_pastoral&#39;</span><span class="p">,</span>
+            <span class="n">filled</span>        <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">impurity</span>      <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">fontsize</span>      <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="n">precision</span>     <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="n">ax</span>            <span class="o">=</span> <span class="n">ax</span>
+       <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profundidad del árbol: 4
+Número de nodos terminales: 6
+</pre></div>
+</div>
+<img alt="../../_images/analisis_forraje_arbol_regresion_55_1.png" src="../../_images/analisis_forraje_arbol_regresion_55_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">importancia_predictores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                            <span class="p">{</span><span class="s1">&#39;predictor&#39;</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fn_valor_pastoral&quot;</span><span class="p">,</span><span class="s1">&#39;tem_max&#39;</span><span class="p">,</span><span class="s1">&#39;tem_med&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+                             <span class="s1">&#39;importancia&#39;</span><span class="p">:</span> <span class="n">modelo4</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">}</span>
+                            <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Importancia de los predictores en el modelo&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------------------------&quot;</span><span class="p">)</span>
+<span class="n">importancia_predictores</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;importancia&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importancia de los predictores en el modelo
+-------------------------------------------
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>predictor</th>
+      <th>importancia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>tem_min</td>
+      <td>0.558216</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>acum_anual</td>
+      <td>0.438246</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>viento</td>
+      <td>0.003538</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>acum_verano</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>humedad</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="id4">
+<h3>METRICAS UTILIZADAS<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><em>Varianza explicada</em>: Representa el porcentaje de la varianza de la variable de salida que es explicado por el modelo. O sea esta métrica evalúa la variación o dispersión de los puntos de datos. <strong>explained_variance_score</strong> La mejor puntuación posible es 1.0,los valores más bajos son peores.</p></li>
+<li><p><em>Error medio absoluto</em>: Es la media de las diferencias absolutas entre el valor objetivo y el predicho. Al no elevar al cuadrado, no penaliza los errores grandes, lo que la hace no muy sensible a valores anómalos, por lo que no es una métrica recomendable en modelos en los que se deba prestar atención a éstos. <strong>mean_absolute_error MAE</strong> Mientras mas cercano a cero mejor.</p></li>
+<li><p><em>Error cuadrático medio</em>: Es simplemente la media de las diferencias entre el valor objetivo y el predicho al cuadrado. Al elevar al cuadrado los errores, magnifica los errores grandes, por lo que hay que utilizarla con cuidado cuando tenemos valores anómalos en nuestro conjunto de datos. <strong>mean_squared_error MSE</strong> Mientras mas cercano a cero mejor. Las unidades de la puntuación de error coinciden con las unidades del valor objetivo que se predice.</p></li>
+<li><p><em>Raíz cuadrada de la media del error al cuadrado</em>: Es igual a la raíz cuadrada de la métrica anterior. La ventaja de esta métrica es que presenta el error en las mismas unidades que la variable objetivo, lo que la hace más fácil de entender. <strong>RMSE</strong>. Mientras mas cercano a cero mejor. Las unidades de la puntuación de error coinciden con las unidades del valor objetivo que se predice.</p></li>
+<li><p><em>R cuadrado</em>: también llamado coeficiente de determinación. Esta métrica difiere de las anteriores, ya que compara nuestro modelo con un modelo básico que siempre devuelve como predicción la media de los valores objetivo de entrenamiento. La comparación entre estos dos modelos se realiza en base a la media de los errores al cuadrado de cada modelo. Los valores que puede tomar esta métrica van desde menos infinito a 1. <strong>r2_score R2</strong> Cuanto más cercano a 1 sea el valor de esta métrica, mejor será nuestro modelo. El coeficiente de determinación, también llamado R cuadrado, refleja la bondad del ajuste de un modelo a la variable que pretender explicar. Es importante saber que el resultado del coeficiente de determinación oscila entre 0 y 1. Cuanto más cerca de 1 se sitúe su valor, mayor será el ajuste del modelo a la variable que estamos intentando explicar. De forma inversa, cuanto más cerca de cero, menos ajustado estará el modelo y, por tanto, menos fiable será.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Error de test del modelo inicial</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="n">predicciones</span> <span class="o">=</span> <span class="n">modelo4</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span>
+        <span class="n">y_true</span>  <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span>
+        <span class="n">y_pred</span>  <span class="o">=</span> <span class="n">predicciones</span><span class="p">,</span>
+        <span class="n">squared</span> <span class="o">=</span> <span class="kc">False</span>
+       <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El error (rmse) de test es: </span><span class="si">{</span><span class="n">rmse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precisión del modelo entrenamiento:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">modelo4</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precisión del modelo test:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">modelo4</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Varianza Explicada:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">explained_variance_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MAE:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MSE:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RMSE:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)),</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R2:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El error (rmse) de test es: 3.277107284045063
+Precisión del modelo entrenamiento:
+1.0%
+Precisión del modelo test:
+0.6524%
+Varianza Explicada:
+0.668
+MAE:
+3.1083
+MSE:
+10.7394
+RMSE:
+3.2771
+R2:
+0.6524
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>La Varianza Explicada es de 0.668, o sea 0.67. ¿Qué significa esto? Qué los datos están dispersos un 67%, y al tener un valor no tan por debajo de 1.0, es una metrica medianamente buena.</p></li>
+<li><p>El Error medio absoluto (MAE) es de 3.1083, o sea 3.11. ¿Qué significa esto? Qué en promedio se equivoca 3.11 unidades en el valor real del VP de un punto. Considerando que el valor pastoral medido en las muestras va de 0.0 a 29.40, entonces 3.11 es medianamente aceptable. Y 3.11 está bastante cerca de 0, lo cual es bueno.</p></li>
+<li><p>Error cuadrático medio (MSE) es de 10.7394, o sea 10.74. ¿Qué significa esto? Qué en promedio se equivoca 10.74 unidades en el valor real del VP de un punto. Considerando que el valor pastoral medido en las muestras va de 0.0 a 29.40, entonces 10.74 no es aceptable. Y 10.74  está lejos de 0, lo cual es malo.</p></li>
+<li><p>La Raíz cuadrada del Error cuadrático medio (RMSE) es de 3.2771, o sea 3.28. ¿Qué significa esto? Qué en promedio se equivoca 3.28 unidades en el valor real del VP de un punto. Considerando que el valor pastoral medido en las muestras va de 0.0 a 29.40, entonces 3.28 es medianamente aceptable. Y 3.28 está bastante cerca de 0, lo cual es bueno.</p></li>
+<li><p>El coeficiente de determinación (R2) es de 0.6524, o sea 0.65. ¿Qué significa esto? Qué el ajuste, según el cálculo del R cuadrado, es de 0.65. Esto quiere decir que es un modelo cuyas estimaciones se ajustan maso menos bien a la variable real. Aunque técnicamente no sería correcto, podríamos decir algo así como que el modelo explica en un 65% a la variable real, o que la calidad del modelo es del 65% o que el rendimiento del modelo es del 65%.</p></li>
+</ul>
+<br/>
+<ul class="simple">
+<li><p>La Precisión del modelo en el entrenamiento es de 1.0%, o sea 100%. ¿Qué significa esto? No sé, porque no compara los valores observados con los predichos como las otras metricas.</p></li>
+<li><p>La Precisión del modelo en el test es de 0.6524%, o sea 65%. ¿Qué significa esto? No sé, porque no compara los valores observados con los predichos como las otras metricas.</p></li>
+</ul>
+<p><strong>La funcion score() para datos de test y r2_score, dan el mismo resultado. Lo cual coincide con lo que dijo Anele, ambos serian el coeficiente de determinacion.</strong></p>
+<p><em>Pero la funcion score() para datos de train, que es como la tome del ejemplo original de regresión multiple (predecir lana a partir de lluvia del dique y cantidad de animales), no sé que signifique.</em></p>
+<p>CONCLUSIÓN: La palabra precisión no es la correcta me parece</p>
+<p>OBSERVACION: Quizas cuando agreguemos mas datos funcione un poco mejor y este seria el modelo a utilizar.</p>
+</section>
+<section id="id5">
+<h3>Grafiquemos los resultados<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)),</span><span class="n">y_test</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Real&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">predicciones</span><span class="p">)),</span><span class="n">predicciones</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Prediccion&quot;</span><span class="p">)</span>
+ <span class="c1">#Mostrar imagen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;muestras&#39;</span><span class="p">)</span>
+<span class="c1"># Set the y axis label of the current axis.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;valor pastoral&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Modelo 4&quot;</span><span class="p">)</span>
+<span class="c1"># Set a title of the current axe</span>
+<span class="c1"># show a legend on the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="c1"># Display a figure.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/analisis_forraje_arbol_regresion_61_0.png" src="../../_images/analisis_forraje_arbol_regresion_61_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="comparar-las-4-pruebas">
+<h2>Comparar las 4 pruebas<a class="headerlink" href="#comparar-las-4-pruebas" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;modelo&#39;</span><span class="p">,</span> <span class="s1">&#39;VE&#39;</span><span class="p">,</span> <span class="s1">&#39;MAE&#39;</span><span class="p">,</span> <span class="s1">&#39;MSE&#39;</span><span class="p">,</span> <span class="s1">&#39;RMSE&#39;</span><span class="p">,</span><span class="s1">&#39;R2&#39;</span><span class="p">],</span><span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;prediccion1&#39;</span><span class="p">,</span><span class="mf">0.43</span><span class="p">,</span><span class="mf">3.35</span><span class="p">,</span><span class="mf">16.2</span><span class="p">,</span><span class="mf">4.03</span><span class="p">,</span><span class="mf">0.41</span><span class="p">)</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;prediccion2&#39;</span><span class="p">,</span><span class="mf">0.37</span><span class="p">,</span><span class="mf">3.67</span><span class="p">,</span><span class="mf">21.61</span><span class="p">,</span><span class="mf">4.65</span><span class="p">,</span><span class="mf">0.37</span><span class="p">)</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;prediccion3&#39;</span><span class="p">,</span><span class="mf">0.37</span><span class="p">,</span><span class="mf">3.67</span><span class="p">,</span><span class="mf">21.61</span><span class="p">,</span><span class="mf">4.65</span><span class="p">,</span><span class="mf">0.37</span><span class="p">)</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;prediccion4&#39;</span><span class="p">,</span><span class="mf">0.67</span><span class="p">,</span><span class="mf">3.11</span><span class="p">,</span><span class="mf">10.74</span><span class="p">,</span><span class="mf">3.28</span><span class="p">,</span><span class="mf">0.65</span><span class="p">)</span>
+<span class="n">tabla</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>modelo</th>
+      <th>VE</th>
+      <th>MAE</th>
+      <th>MSE</th>
+      <th>RMSE</th>
+      <th>R2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>prediccion1</td>
+      <td>0.43</td>
+      <td>3.35</td>
+      <td>16.2</td>
+      <td>4.03</td>
+      <td>0.41</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>prediccion2</td>
+      <td>0.37</td>
+      <td>3.67</td>
+      <td>21.61</td>
+      <td>4.65</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>prediccion3</td>
+      <td>0.37</td>
+      <td>3.67</td>
+      <td>21.61</td>
+      <td>4.65</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>prediccion4</td>
+      <td>0.67</td>
+      <td>3.11</td>
+      <td>10.74</td>
+      <td>3.28</td>
+      <td>0.65</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Si consideramos las metricas MAE Y RMSE como las mas significativas, el mejor modelo es el de la prediccion 4.</p>
+<p>Si consideramos la VE como la importante entonces el mejor modelo es el de la prediccion 4.</p>
+<p>Si consideramos el R2 como el mas significativo, el modelo de la prediccion 4 es el mejor.</p>
+<p>Según diferentes lecturas el MSE y el R2 son las mas utilizadas para regresión, y si miramos las metricas de los modelos el valor de MSE en ninguno esta muuuy cerca de 0 y el valor de R2 en ninguno esta muuuuy cerca de 1, lo cual indica que ninguno funciona excelente.</p>
+</section>
+<section id="conclusion-hay-un-modelo-que-funciona-bien-pero-el-resto-funciona-maso-menos-debajo-del-50-lo-cual-no-esta-bueno-pero-todos-los-algoritmos-probados-probados-dan-una-precision-parecida">
+<h2>Conclusión: Hay un modelo que funciona bien pero el resto funciona maso menos, debajo del 50%, lo cual no esta bueno pero todos los algoritmos probados probados dan una “precisión” parecida.<a class="headerlink" href="#conclusion-hay-un-modelo-que-funciona-bien-pero-el-resto-funciona-maso-menos-debajo-del-50-lo-cual-no-esta-bueno-pero-todos-los-algoritmos-probados-probados-dan-una-precision-parecida" title="Permalink to this headline">¶</a></h2>
+<section id="el-modelo-que-funciona-bien-quizas-mejore-si-le-agregamos-los-200-datos-que-faltan">
+<h3>El modelo que funciona bien quizas mejore si le agregamos los 200 datos que faltan<a class="headerlink" href="#el-modelo-que-funciona-bien-quizas-mejore-si-le-agregamos-los-200-datos-que-faltan" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./cuadernos_jupyter/forraje"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../../estructura/desarrollo.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Desarrollo</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="analisis_forraje_KNN.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Análisis Forraje k-Nearest Neighbor</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Garibaldi Anele - Allende Lucila<br/>
+    
+        &copy; Derechos de autor 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
