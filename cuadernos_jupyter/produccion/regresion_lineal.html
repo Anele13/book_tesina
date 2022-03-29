@@ -1,0 +1,1571 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Regresión Lineal &#8212; Tesina de Grado</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo_facultad.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tesina de Grado</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../estructura/intro.html">
+   Sistema de Información y Apoyo a la Producción Ovina de Baja Escala en Chubut
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../estructura/preliminares.html">
+   Preliminares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../estructura/marco_teorico.html">
+   Marco Teorico
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../estructura/desarrollo.html">
+   Desarrollo
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../forraje/analisis_forraje_arbol_regresion.html">
+     Árbol de regresión Forraje
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../forraje/analisis_forraje_KNN.html">
+     Análisis Forraje k-Nearest Neighbor
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/cuadernos_jupyter/produccion/regresion_lineal.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/LucilaAllende/datos-tesina-2021"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/LucilaAllende/datos-tesina-2021/issues/new?title=Issue%20on%20page%20%2Fcuadernos_jupyter/produccion/regresion_lineal.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/LucilaAllende/datos-tesina-2021/master?urlpath=tree/docs/cuadernos_jupyter/produccion/regresion_lineal.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Regresión Lineal
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion-la-regresion-lineal-simple-no-pareciera-ser-modelo-para-estos-datos-puede-que-porque-tengamos-pocos-datos">
+     CONCLUSIÓN: La regresión lineal simple no pareciera ser modelo para estos datos, puede que porque tengamos pocos datos.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regresion-lineal-simple">
+   Regresión Lineal Simple
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predecir-a-partir-del-promedio-de-lluvia-anual-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-tiene-un-valor-de-0-19">
+     Predecir a partir del promedio de lluvia anual la cantidad de lana producida. Según la matriz estas variables no estan correlacionadas. Tiene un valor de 0.19.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predecir-a-partir-de-la-radiacion-solar-la-finura-de-la-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-o-tienen-una-muy-baja-correlacion-tiene-un-valor-de-0-28">
+     Predecir a partir de la radiacion solar la finura de la lana producida. Según la matriz estas variables no estan correlacionadas o tienen una muy baja correlacion. Tiene un valor de -0.28.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predecir-a-partir-de-la-lluvia-acumulada-anual-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-tiene-un-valor-de-0-19">
+     Predecir a partir de la lluvia acumulada anual la cantidad de lana producida. Según la matriz estas variables no estan correlacionadas. Tiene un valor de 0.19.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predecir-a-partir-de-la-lluvia-acumulada-en-el-verano-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-tiene-un-valor-de-0-13">
+     Predecir a partir de la lluvia acumulada en el verano la cantidad de lana producida. Según la matriz estas variables no estan correlacionadas. Tiene un valor de -0.13.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predecir-a-partir-de-la-radiacion-solar-la-cantidad-de-animales-que-voy-a-esquilar-segun-la-matriz-estas-variables-estan-correlacionadas-o-tienen-una-mediana-correlacion-tiene-un-valor-de-0-45">
+     Predecir a partir de la radiacion solar la cantidad de animales que voy a esquilar. Según la matriz estas variables estan correlacionadas o tienen una mediana correlacion. Tiene un valor de 0.45.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predecir-a-partir-de-la-cantidad-de-animales-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-estan-correlacionadas-positivamente-tiene-un-valor-de-0-64">
+     Predecir a partir de la cantidad de animales la cantidad de lana producida. Según la matriz estas variables estan correlacionadas positivamente. Tiene un valor de 0.64.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predecir-a-partir-de-la-cantidad-de-ovejas-prenadas-la-cantidad-de-corderos-segun-la-matriz-estas-variables-estan-correlacionadas-positivamente-tiene-un-valor-de-0-58">
+     Predecir a partir de la cantidad de ovejas preñadas la cantidad de corderos. Según la matriz estas variables estan correlacionadas positivamente. Tiene un valor de 0.58.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     CONCLUSIÓN: La regresión lineal simple no pareciera ser modelo para estos datos, puede que porque tengamos pocos datos.
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Regresión Lineal</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Regresión Lineal
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion-la-regresion-lineal-simple-no-pareciera-ser-modelo-para-estos-datos-puede-que-porque-tengamos-pocos-datos">
+     CONCLUSIÓN: La regresión lineal simple no pareciera ser modelo para estos datos, puede que porque tengamos pocos datos.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regresion-lineal-simple">
+   Regresión Lineal Simple
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predecir-a-partir-del-promedio-de-lluvia-anual-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-tiene-un-valor-de-0-19">
+     Predecir a partir del promedio de lluvia anual la cantidad de lana producida. Según la matriz estas variables no estan correlacionadas. Tiene un valor de 0.19.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predecir-a-partir-de-la-radiacion-solar-la-finura-de-la-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-o-tienen-una-muy-baja-correlacion-tiene-un-valor-de-0-28">
+     Predecir a partir de la radiacion solar la finura de la lana producida. Según la matriz estas variables no estan correlacionadas o tienen una muy baja correlacion. Tiene un valor de -0.28.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predecir-a-partir-de-la-lluvia-acumulada-anual-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-tiene-un-valor-de-0-19">
+     Predecir a partir de la lluvia acumulada anual la cantidad de lana producida. Según la matriz estas variables no estan correlacionadas. Tiene un valor de 0.19.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predecir-a-partir-de-la-lluvia-acumulada-en-el-verano-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-tiene-un-valor-de-0-13">
+     Predecir a partir de la lluvia acumulada en el verano la cantidad de lana producida. Según la matriz estas variables no estan correlacionadas. Tiene un valor de -0.13.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predecir-a-partir-de-la-radiacion-solar-la-cantidad-de-animales-que-voy-a-esquilar-segun-la-matriz-estas-variables-estan-correlacionadas-o-tienen-una-mediana-correlacion-tiene-un-valor-de-0-45">
+     Predecir a partir de la radiacion solar la cantidad de animales que voy a esquilar. Según la matriz estas variables estan correlacionadas o tienen una mediana correlacion. Tiene un valor de 0.45.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predecir-a-partir-de-la-cantidad-de-animales-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-estan-correlacionadas-positivamente-tiene-un-valor-de-0-64">
+     Predecir a partir de la cantidad de animales la cantidad de lana producida. Según la matriz estas variables estan correlacionadas positivamente. Tiene un valor de 0.64.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predecir-a-partir-de-la-cantidad-de-ovejas-prenadas-la-cantidad-de-corderos-segun-la-matriz-estas-variables-estan-correlacionadas-positivamente-tiene-un-valor-de-0-58">
+     Predecir a partir de la cantidad de ovejas preñadas la cantidad de corderos. Según la matriz estas variables estan correlacionadas positivamente. Tiene un valor de 0.58.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     CONCLUSIÓN: La regresión lineal simple no pareciera ser modelo para estos datos, puede que porque tengamos pocos datos.
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="regresion-lineal">
+<h1>Regresión Lineal<a class="headerlink" href="#regresion-lineal" title="Permalink to this headline">¶</a></h1>
+<section id="conclusion-la-regresion-lineal-simple-no-pareciera-ser-modelo-para-estos-datos-puede-que-porque-tengamos-pocos-datos">
+<h2>CONCLUSIÓN: La regresión lineal simple no pareciera ser modelo para estos datos, puede que porque tengamos pocos datos.<a class="headerlink" href="#conclusion-la-regresion-lineal-simple-no-pareciera-ser-modelo-para-estos-datos-puede-que-porque-tengamos-pocos-datos" title="Permalink to this headline">¶</a></h2>
+<p>Intente predecir variables correlacionalas, medianamente correlacionadas y no correlacionadas, y ninguna predice bien. Mezcle varriables climaticas con las productivas, tambien use productivas con productivas….</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports necesarios</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#cargamos los datos de entrada</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;datos/csv/datos_produccion_clima_35_1.csv&quot;</span><span class="p">)</span>
+<span class="c1">#veamos cuantas dimensiones y registros contiene</span>
+<span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(36, 18)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#son 36 registros con 18 columnas. Veamos los primeros registros</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fecha</th>
+      <th>esquila</th>
+      <th>ovejas</th>
+      <th>corderos</th>
+      <th>kilos_lana</th>
+      <th>rinde_seco</th>
+      <th>finura</th>
+      <th>kilo_lana_p/animal</th>
+      <th>porcentaje_paricion</th>
+      <th>temp_media</th>
+      <th>temp_min</th>
+      <th>tem_max</th>
+      <th>humedad</th>
+      <th>cant_lluvia</th>
+      <th>rad_solar</th>
+      <th>vel_viento</th>
+      <th>acumulado_anual</th>
+      <th>acumulado_verano</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>31/12/1985</td>
+      <td>3514</td>
+      <td>1419</td>
+      <td>912</td>
+      <td>15600</td>
+      <td>60.46</td>
+      <td>19.26</td>
+      <td>4.44</td>
+      <td>64.27</td>
+      <td>14.3</td>
+      <td>6.4</td>
+      <td>20.9</td>
+      <td>57.6</td>
+      <td>208.6</td>
+      <td>4312.72</td>
+      <td>6.1</td>
+      <td>208.1</td>
+      <td>56.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>31/12/1986</td>
+      <td>3783</td>
+      <td>1520</td>
+      <td>680</td>
+      <td>18167</td>
+      <td>61.52</td>
+      <td>19.86</td>
+      <td>4.80</td>
+      <td>44.74</td>
+      <td>12.9</td>
+      <td>5.8</td>
+      <td>20.5</td>
+      <td>58.1</td>
+      <td>130.3</td>
+      <td>4236.36</td>
+      <td>6.8</td>
+      <td>130.0</td>
+      <td>20.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>31/12/1987</td>
+      <td>3988</td>
+      <td>1928</td>
+      <td>512</td>
+      <td>11200</td>
+      <td>55.77</td>
+      <td>19.41</td>
+      <td>2.81</td>
+      <td>26.56</td>
+      <td>13.8</td>
+      <td>6.8</td>
+      <td>20.7</td>
+      <td>60.3</td>
+      <td>199.5</td>
+      <td>4142.41</td>
+      <td>6.4</td>
+      <td>199.3</td>
+      <td>77.1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>31/12/1988</td>
+      <td>3590</td>
+      <td>1560</td>
+      <td>310</td>
+      <td>13197</td>
+      <td>61.69</td>
+      <td>18.65</td>
+      <td>3.68</td>
+      <td>19.87</td>
+      <td>12.9</td>
+      <td>5.5</td>
+      <td>20.4</td>
+      <td>54.9</td>
+      <td>85.5</td>
+      <td>4225.09</td>
+      <td>6.3</td>
+      <td>85.4</td>
+      <td>29.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>31/12/1989</td>
+      <td>2830</td>
+      <td>1210</td>
+      <td>150</td>
+      <td>12300</td>
+      <td>57.13</td>
+      <td>19.82</td>
+      <td>4.35</td>
+      <td>12.40</td>
+      <td>14.5</td>
+      <td>7.1</td>
+      <td>21.9</td>
+      <td>56.5</td>
+      <td>92.5</td>
+      <td>4195.38</td>
+      <td>6.3</td>
+      <td>92.0</td>
+      <td>12.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ahora veamos algunas estadísticas de nuestros datos</span>
+<span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>esquila</th>
+      <th>ovejas</th>
+      <th>corderos</th>
+      <th>kilos_lana</th>
+      <th>rinde_seco</th>
+      <th>finura</th>
+      <th>kilo_lana_p/animal</th>
+      <th>porcentaje_paricion</th>
+      <th>temp_media</th>
+      <th>temp_min</th>
+      <th>tem_max</th>
+      <th>humedad</th>
+      <th>cant_lluvia</th>
+      <th>rad_solar</th>
+      <th>vel_viento</th>
+      <th>acumulado_anual</th>
+      <th>acumulado_verano</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+      <td>36.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2910.166667</td>
+      <td>1497.805556</td>
+      <td>522.527778</td>
+      <td>11813.388889</td>
+      <td>58.548611</td>
+      <td>19.573611</td>
+      <td>4.143889</td>
+      <td>34.732778</td>
+      <td>13.452778</td>
+      <td>5.805556</td>
+      <td>21.150000</td>
+      <td>52.822222</td>
+      <td>181.741667</td>
+      <td>4298.099167</td>
+      <td>7.372222</td>
+      <td>181.341667</td>
+      <td>49.513889</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>709.540395</td>
+      <td>561.386387</td>
+      <td>359.433641</td>
+      <td>2933.659258</td>
+      <td>3.115420</td>
+      <td>0.669461</td>
+      <td>0.867885</td>
+      <td>20.408218</td>
+      <td>0.680960</td>
+      <td>0.948365</td>
+      <td>1.009809</td>
+      <td>9.225124</td>
+      <td>71.551250</td>
+      <td>210.778195</td>
+      <td>2.493146</td>
+      <td>71.526844</td>
+      <td>31.108420</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1651.000000</td>
+      <td>768.000000</td>
+      <td>34.000000</td>
+      <td>5245.000000</td>
+      <td>53.100000</td>
+      <td>18.500000</td>
+      <td>2.810000</td>
+      <td>3.680000</td>
+      <td>11.900000</td>
+      <td>2.600000</td>
+      <td>19.300000</td>
+      <td>18.500000</td>
+      <td>59.800000</td>
+      <td>4093.600000</td>
+      <td>4.100000</td>
+      <td>59.600000</td>
+      <td>0.800000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2352.250000</td>
+      <td>1116.750000</td>
+      <td>275.000000</td>
+      <td>9921.250000</td>
+      <td>56.182500</td>
+      <td>19.245000</td>
+      <td>3.597500</td>
+      <td>18.007500</td>
+      <td>12.975000</td>
+      <td>5.500000</td>
+      <td>20.600000</td>
+      <td>50.825000</td>
+      <td>130.600000</td>
+      <td>4199.925000</td>
+      <td>6.050000</td>
+      <td>130.075000</td>
+      <td>24.500000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2896.500000</td>
+      <td>1309.000000</td>
+      <td>503.500000</td>
+      <td>11410.500000</td>
+      <td>58.855000</td>
+      <td>19.570000</td>
+      <td>3.970000</td>
+      <td>37.365000</td>
+      <td>13.500000</td>
+      <td>6.000000</td>
+      <td>20.950000</td>
+      <td>55.400000</td>
+      <td>181.900000</td>
+      <td>4237.830000</td>
+      <td>6.600000</td>
+      <td>181.600000</td>
+      <td>42.850000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>3503.500000</td>
+      <td>1852.500000</td>
+      <td>714.000000</td>
+      <td>13566.500000</td>
+      <td>61.150000</td>
+      <td>19.830000</td>
+      <td>4.540000</td>
+      <td>48.230000</td>
+      <td>13.825000</td>
+      <td>6.400000</td>
+      <td>21.625000</td>
+      <td>57.525000</td>
+      <td>213.875000</td>
+      <td>4285.117500</td>
+      <td>7.975000</td>
+      <td>213.275000</td>
+      <td>77.225000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>4239.000000</td>
+      <td>3083.000000</td>
+      <td>1455.000000</td>
+      <td>18167.000000</td>
+      <td>65.270000</td>
+      <td>21.000000</td>
+      <td>6.310000</td>
+      <td>71.600000</td>
+      <td>14.800000</td>
+      <td>7.100000</td>
+      <td>24.300000</td>
+      <td>62.200000</td>
+      <td>355.000000</td>
+      <td>5019.000000</td>
+      <td>15.500000</td>
+      <td>354.600000</td>
+      <td>109.700000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualizamos rápidamente las caraterísticas de entrada</span>
+<span class="n">data</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_6_0.png" src="../../_images/regresion_lineal_6_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="regresion-lineal-simple">
+<h1>Regresión Lineal Simple<a class="headerlink" href="#regresion-lineal-simple" title="Permalink to this headline">¶</a></h1>
+<section id="predecir-a-partir-del-promedio-de-lluvia-anual-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-tiene-un-valor-de-0-19">
+<h2>Predecir a partir del promedio de lluvia anual la cantidad de lana producida. Según la matriz estas variables no estan correlacionadas. Tiene un valor de 0.19.<a class="headerlink" href="#predecir-a-partir-del-promedio-de-lluvia-anual-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-tiene-un-valor-de-0-19" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colores</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="n">tamanios</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">]</span>
+
+<span class="n">f1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;cant_lluvia&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;kilos_lana&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Vamos a pintar en colores los puntos por debajo y por encima de la media de cantidad de lluvia</span>
+<span class="n">asignar</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;cant_lluvia&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mf">181.74</span><span class="p">):</span>
+        <span class="n">asignar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colores</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">asignar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colores</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">asignar</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">tamanios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_9_0.png" src="../../_images/regresion_lineal_9_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asignamos nuestra variable de entrada X para entrenamiento y las etiquetas Y.</span>
+<span class="n">dataX</span> <span class="o">=</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;cant_lluvia&quot;</span><span class="p">]]</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dataX</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;kilos_lana&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Creamos el objeto de Regresión Linear</span>
+<span class="n">regr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># Entrenamos nuestro modelo</span>
+<span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Hacemos las predicciones que en definitiva una línea (en este caso, al ser 2D)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># Veamos los coeficienetes obtenidos, En nuestro caso, serán la Tangente</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coefficients: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="c1"># Este es el valor donde corta el eje Y (en X=0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Independent term: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="c1"># Error Cuadrado Medio</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean squared error: </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="c1"># Puntaje de Varianza. El mejor puntaje es un 1.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Variance score: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficients: 
+ [7.61563563]
+Independent term: 
+ 10429.310576896733
+Mean squared error: 8078614.10
+Variance score: 0.03
+</pre></div>
+</div>
+</div>
+</div>
+<p>De la ecuación de la recta y = mX + b nuestra pendiente “m” es el coeficiente 7.61 y el término independiente “b” es 10429,31. Tenemos un Error Cuadrático medio enorme… por lo que en realidad este modelo no será muy bueno. Esto también se ve reflejado en el puntaje de Varianza que debería ser cercano a 1.0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_train</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="n">asignar</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">tamanios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Promedio de Lluvia&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Compartido de Lana&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Regresión Lineal&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_12_0.png" src="../../_images/regresion_lineal_12_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vamos a comprobar:</span>
+<span class="c1"># Quiero predecir cuántos &quot;Kilos de lana&quot; voy a obtener por un promedio de lluvia de 200,</span>
+<span class="c1"># según nuestro modelo, hacemos:</span>
+<span class="n">y_p</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mi">200</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">y_p</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11952.44
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="predecir-a-partir-de-la-radiacion-solar-la-finura-de-la-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-o-tienen-una-muy-baja-correlacion-tiene-un-valor-de-0-28">
+<h2>Predecir a partir de la radiacion solar la finura de la lana producida. Según la matriz estas variables no estan correlacionadas o tienen una muy baja correlacion. Tiene un valor de -0.28.<a class="headerlink" href="#predecir-a-partir-de-la-radiacion-solar-la-finura-de-la-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-o-tienen-una-muy-baja-correlacion-tiene-un-valor-de-0-28" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colores</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="n">tamanios</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">]</span>
+
+<span class="n">f1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;rad_solar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;finura&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Vamos a pintar en colores los puntos por debajo y por encima de la media de Radiacion Solar</span>
+<span class="n">asignar</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;rad_solar&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mf">4248.09</span><span class="p">):</span>
+        <span class="n">asignar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colores</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">asignar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colores</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">asignar</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">tamanios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_15_0.png" src="../../_images/regresion_lineal_15_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asignamos nuestra variable de entrada X para entrenamiento y las etiquetas Y.</span>
+<span class="n">dataX</span> <span class="o">=</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;rad_solar&quot;</span><span class="p">]]</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dataX</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;finura&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Creamos el objeto de Regresión Linear</span>
+<span class="n">regr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># Entrenamos nuestro modelo</span>
+<span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Hacemos las predicciones que en definitiva una línea (en este caso, al ser 2D)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># Veamos los coeficienetes obtenidos, En nuestro caso, serán la Tangente</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coefficients: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="c1"># Este es el valor donde corta el eje Y (en X=0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Independent term: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="c1"># Error Cuadrado Medio</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean squared error: </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="c1"># Puntaje de Varianza. El mejor puntaje es un 1.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Variance score: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficients: 
+ [-0.00090029]
+Independent term: 
+ 23.443163551726574
+Mean squared error: 0.40
+Variance score: 0.08
+</pre></div>
+</div>
+</div>
+</div>
+<p>De la ecuación de la recta y = mX + b nuestra pendiente “m” es el coeficiente -0.0009 y el término independiente “b” es 23.44. Tenemos un Error Cuadrático de 0.4… por lo que este modelo deberia ser mejor que el anterior, pero maso menos igual. Esto también se ve reflejado en el puntaje de Varianza que debería ser cercano a 1.0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_train</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="n">asignar</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">tamanios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Cantidad de Radiacion&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Finura&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Regresión Lineal&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_18_0.png" src="../../_images/regresion_lineal_18_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vamos a comprobar:</span>
+<span class="c1"># Quiero predecir cuántos &quot;Kilos de lana&quot; voy a obtener con una radicion solar de 4589,</span>
+<span class="c1"># según nuestro modelo, hacemos:</span>
+<span class="n">y_p</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mi">4600</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">y_p</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="predecir-a-partir-de-la-lluvia-acumulada-anual-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-tiene-un-valor-de-0-19">
+<h2>Predecir a partir de la lluvia acumulada anual la cantidad de lana producida. Según la matriz estas variables no estan correlacionadas. Tiene un valor de 0.19.<a class="headerlink" href="#predecir-a-partir-de-la-lluvia-acumulada-anual-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-tiene-un-valor-de-0-19" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colores</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="n">tamanios</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">]</span>
+
+<span class="n">f1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;acumulado_anual&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;kilos_lana&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Vamos a pintar en colores los puntos por debajo y por encima de la media de acumulado de lluvia anual</span>
+<span class="n">asignar</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;acumulado_anual&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mf">181.34</span><span class="p">):</span>
+        <span class="n">asignar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colores</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">asignar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colores</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">asignar</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">tamanios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_21_0.png" src="../../_images/regresion_lineal_21_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asignamos nuestra variable de entrada X para entrenamiento y las etiquetas Y.</span>
+<span class="n">dataX</span> <span class="o">=</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;acumulado_anual&quot;</span><span class="p">]]</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dataX</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;kilos_lana&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Creamos el objeto de Regresión Linear</span>
+<span class="n">regr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># Entrenamos nuestro modelo</span>
+<span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Hacemos las predicciones que en definitiva una línea (en este caso, al ser 2D)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># Veamos los coeficienetes obtenidos, En nuestro caso, serán la Tangente</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coefficients: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="c1"># Este es el valor donde corta el eje Y (en X=0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Independent term: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="c1"># Error Cuadrado Medio</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean squared error: </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="c1"># Puntaje de Varianza. El mejor puntaje es un 1.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Variance score: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficients: 
+ [7.64233282]
+Independent term: 
+ 10427.515517560514
+Mean squared error: 8076784.88
+Variance score: 0.03
+</pre></div>
+</div>
+</div>
+</div>
+<p>De la ecuación de la recta y = mX + b nuestra pendiente “m” es el coeficiente 7.64 y el término independiente “b” es 10427,51. Tenemos un Error Cuadrático medio enorme… por lo que en realidad este modelo no será muy bueno. Esto también se ve reflejado en el puntaje de Varianza que debería ser cercano a 1.0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_train</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="n">asignar</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">tamanios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Acumulado de lluvia Anual&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cantidad de Kilos de Lana&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Regresión Lineal&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_24_0.png" src="../../_images/regresion_lineal_24_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vamos a comprobar:</span>
+<span class="c1"># Quiero predecir cuántos &quot;Kilos de lana&quot; voy a obtener con un acumulado de lluvia de 189,</span>
+<span class="c1"># según nuestro modelo, hacemos:</span>
+<span class="n">y_p</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mi">189</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">y_p</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11871.92
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="predecir-a-partir-de-la-lluvia-acumulada-en-el-verano-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-tiene-un-valor-de-0-13">
+<h2>Predecir a partir de la lluvia acumulada en el verano la cantidad de lana producida. Según la matriz estas variables no estan correlacionadas. Tiene un valor de -0.13.<a class="headerlink" href="#predecir-a-partir-de-la-lluvia-acumulada-en-el-verano-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-no-estan-correlacionadas-tiene-un-valor-de-0-13" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colores</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="n">tamanios</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">]</span>
+
+<span class="n">f1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;acumulado_verano&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;kilos_lana&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Vamos a pintar en colores los puntos por debajo y por encima de la media de acumulado de lluvia anual</span>
+<span class="n">asignar</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;acumulado_verano&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mf">49.51</span><span class="p">):</span>
+        <span class="n">asignar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colores</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">asignar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colores</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">asignar</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">tamanios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_27_0.png" src="../../_images/regresion_lineal_27_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asignamos nuestra variable de entrada X para entrenamiento y las etiquetas Y.</span>
+<span class="n">dataX</span> <span class="o">=</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;acumulado_verano&quot;</span><span class="p">]]</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dataX</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;kilos_lana&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Creamos el objeto de Regresión Linear</span>
+<span class="n">regr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># Entrenamos nuestro modelo</span>
+<span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Hacemos las predicciones que en definitiva una línea (en este caso, al ser 2D)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># Veamos los coeficienetes obtenidos, En nuestro caso, serán la Tangente</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coefficients: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="c1"># Este es el valor donde corta el eje Y (en X=0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Independent term: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="c1"># Error Cuadrado Medio</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean squared error: </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="c1"># Puntaje de Varianza. El mejor puntaje es un 1.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Variance score: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficients: 
+ [-12.41384456]
+Independent term: 
+ 12428.04660889995
+Mean squared error: 8222302.51
+Variance score: 0.02
+</pre></div>
+</div>
+</div>
+</div>
+<p>De la ecuación de la recta y = mX + b nuestra pendiente “m” es el coeficiente -12.41 y el término independiente “b” es 12428,07. Tenemos un Error Cuadrático medio enorme… por lo que en realidad este modelo no será muy bueno. Esto también se ve reflejado en el puntaje de Varianza que debería ser cercano a 1.0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_train</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="n">asignar</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">tamanios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Acumulado de lluvia en Verano&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cantidad de Kilos de Lana&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Regresión Lineal&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_30_0.png" src="../../_images/regresion_lineal_30_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vamos a comprobar:</span>
+<span class="c1"># Quiero predecir cuántos &quot;Kilos de lana&quot; voy a obtener con un acumulado de lluvia de 189,</span>
+<span class="c1"># según nuestro modelo, hacemos:</span>
+<span class="n">y_p</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mi">189</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">y_p</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10081.83
+</pre></div>
+</div>
+</div>
+</div>
+<p>OBSERVACION: lo que encuentra es que cuando menos llueve en el verano mas lana hay. !!!!!</p>
+</section>
+<section id="predecir-a-partir-de-la-radiacion-solar-la-cantidad-de-animales-que-voy-a-esquilar-segun-la-matriz-estas-variables-estan-correlacionadas-o-tienen-una-mediana-correlacion-tiene-un-valor-de-0-45">
+<h2>Predecir a partir de la radiacion solar la cantidad de animales que voy a esquilar. Según la matriz estas variables estan correlacionadas o tienen una mediana correlacion. Tiene un valor de 0.45.<a class="headerlink" href="#predecir-a-partir-de-la-radiacion-solar-la-cantidad-de-animales-que-voy-a-esquilar-segun-la-matriz-estas-variables-estan-correlacionadas-o-tienen-una-mediana-correlacion-tiene-un-valor-de-0-45" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colores</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="n">tamanios</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">]</span>
+
+<span class="n">f1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;rad_solar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;esquila&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Vamos a pintar en colores los puntos por debajo y por encima de la media de acumulado de lluvia anual</span>
+<span class="n">asignar</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;rad_solar&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mf">4298.09</span><span class="p">):</span>
+        <span class="n">asignar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colores</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">asignar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colores</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">asignar</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">tamanios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_34_0.png" src="../../_images/regresion_lineal_34_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asignamos nuestra variable de entrada X para entrenamiento y las etiquetas Y.</span>
+<span class="n">dataX</span> <span class="o">=</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;rad_solar&quot;</span><span class="p">]]</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dataX</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;esquila&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Creamos el objeto de Regresión Linear</span>
+<span class="n">regr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># Entrenamos nuestro modelo</span>
+<span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Hacemos las predicciones que en definitiva una línea (en este caso, al ser 2D)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># Veamos los coeficienetes obtenidos, En nuestro caso, serán la Tangente</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coefficients: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="c1"># Este es el valor donde corta el eje Y (en X=0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Independent term: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="c1"># Error Cuadrado Medio</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean squared error: </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="c1"># Puntaje de Varianza. El mejor puntaje es un 1.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Variance score: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficients: 
+ [1.52758371]
+Independent term: 
+ -3655.539624510216
+Mean squared error: 388670.71
+Variance score: 0.21
+</pre></div>
+</div>
+</div>
+</div>
+<p>De la ecuación de la recta y = mX + b nuestra pendiente “m” es el coeficiente 1.52 y el término independiente “b” es -3655,53. Tenemos un Error Cuadrático medio enorme… por lo que en realidad este modelo no será muy bueno. Esto también se ve reflejado en el puntaje de Varianza que debería ser cercano a 1.0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_train</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="n">asignar</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">tamanios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radicion Solar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cantidad de Animales Esquilados&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Regresión Lineal&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_37_0.png" src="../../_images/regresion_lineal_37_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vamos a comprobar:</span>
+<span class="c1"># Quiero predecir cuántos animales esquilados voy a obtener con una radicion solar de 4566,</span>
+<span class="c1"># según nuestro modelo, hacemos:</span>
+<span class="n">y_p</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mi">4566</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">y_p</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3319.41
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="predecir-a-partir-de-la-cantidad-de-animales-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-estan-correlacionadas-positivamente-tiene-un-valor-de-0-64">
+<h2>Predecir a partir de la cantidad de animales la cantidad de lana producida. Según la matriz estas variables estan correlacionadas positivamente. Tiene un valor de 0.64.<a class="headerlink" href="#predecir-a-partir-de-la-cantidad-de-animales-la-cantidad-de-lana-producida-segun-la-matriz-estas-variables-estan-correlacionadas-positivamente-tiene-un-valor-de-0-64" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colores</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="n">tamanios</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">]</span>
+
+<span class="n">f1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;esquila&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;kilos_lana&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Vamos a pintar en colores los puntos por debajo y por encima de la media de cantidad de animales</span>
+<span class="n">asignar</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;esquila&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">2910</span><span class="p">):</span>
+        <span class="n">asignar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colores</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">asignar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colores</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">asignar</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">tamanios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_40_0.png" src="../../_images/regresion_lineal_40_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asignamos nuestra variable de entrada X para entrenamiento y las etiquetas Y.</span>
+<span class="n">dataX</span> <span class="o">=</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;esquila&quot;</span><span class="p">]]</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dataX</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;kilos_lana&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Creamos el objeto de Regresión Linear</span>
+<span class="n">regr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># Entrenamos nuestro modelo</span>
+<span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Hacemos las predicciones que en definitiva una línea (en este caso, al ser 2D)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># Veamos los coeficienetes obtenidos, En nuestro caso, serán la Tangente</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coefficients: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="c1"># Este es el valor donde corta el eje Y (en X=0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Independent term: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="c1"># Error Cuadrado Medio</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean squared error: </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="c1"># Puntaje de Varianza. El mejor puntaje es un 1.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Variance score: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficients: 
+ [2.65162]
+Independent term: 
+ 4096.732762236207
+Mean squared error: 4925834.05
+Variance score: 0.41
+</pre></div>
+</div>
+</div>
+</div>
+<p>De la ecuación de la recta y = mX + b nuestra pendiente “m” es el coeficiente 2.65 y el término independiente “b” es -4096.73. Tenemos un Error Cuadrático medio enorme… por lo que en realidad este modelo no será muy bueno. Esto también se ve reflejado en el puntaje de Varianza que debería ser cercano a 1.0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_train</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="n">asignar</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">tamanios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Cantidad de Animales&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cantidad de Lana&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Regresión Lineal&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_43_0.png" src="../../_images/regresion_lineal_43_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vamos a comprobar:</span>
+<span class="c1"># Quiero predecir cuántos kilos dde lana voy a obtener con una cantidad de animales de 3566,</span>
+<span class="c1"># según nuestro modelo, hacemos:</span>
+<span class="n">y_p</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mi">3566</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">y_p</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13552.41
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="predecir-a-partir-de-la-cantidad-de-ovejas-prenadas-la-cantidad-de-corderos-segun-la-matriz-estas-variables-estan-correlacionadas-positivamente-tiene-un-valor-de-0-58">
+<h2>Predecir a partir de la cantidad de ovejas preñadas la cantidad de corderos. Según la matriz estas variables estan correlacionadas positivamente. Tiene un valor de 0.58.<a class="headerlink" href="#predecir-a-partir-de-la-cantidad-de-ovejas-prenadas-la-cantidad-de-corderos-segun-la-matriz-estas-variables-estan-correlacionadas-positivamente-tiene-un-valor-de-0-58" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colores</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="n">tamanios</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">]</span>
+
+<span class="n">f1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ovejas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;corderos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Vamos a pintar en colores los puntos por debajo y por encima de la media de cantidad de animales</span>
+<span class="n">asignar</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;ovejas&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1497</span><span class="p">):</span>
+        <span class="n">asignar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colores</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">asignar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colores</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">asignar</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">tamanios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_46_0.png" src="../../_images/regresion_lineal_46_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asignamos nuestra variable de entrada X para entrenamiento y las etiquetas Y.</span>
+<span class="n">dataX</span> <span class="o">=</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;ovejas&quot;</span><span class="p">]]</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dataX</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;corderos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Creamos el objeto de Regresión Linear</span>
+<span class="n">regr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># Entrenamos nuestro modelo</span>
+<span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Hacemos las predicciones que en definitiva una línea (en este caso, al ser 2D)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># Veamos los coeficienetes obtenidos, En nuestro caso, serán la Tangente</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coefficients: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="c1"># Este es el valor donde corta el eje Y (en X=0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Independent term: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="c1"># Error Cuadrado Medio</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean squared error: </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="c1"># Puntaje de Varianza. El mejor puntaje es un 1.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Variance score: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficients: 
+ [0.37322061]
+Independent term: 
+ -36.484123642376176
+Mean squared error: 82924.24
+Variance score: 0.34
+</pre></div>
+</div>
+</div>
+</div>
+<p>De la ecuación de la recta y = mX + b nuestra pendiente “m” es el coeficiente 0.37 y el término independiente “b” es -36.48. Tenemos un Error Cuadrático medio enorme… por lo que en realidad este modelo no será muy bueno. Esto también se ve reflejado en el puntaje de Varianza que debería ser cercano a 1.0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_train</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="n">asignar</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">tamanios</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Cantidad de Ovejas&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cantidad de Corderos&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Regresión Lineal&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regresion_lineal_49_0.png" src="../../_images/regresion_lineal_49_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vamos a comprobar:</span>
+<span class="c1"># Quiero predecir cuántos kilos dde lana voy a obtener con una cantidad de ovejas de 2566,</span>
+<span class="c1"># según nuestro modelo, hacemos:</span>
+<span class="n">y_p</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mi">2566</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">y_p</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>921.2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h2>CONCLUSIÓN: La regresión lineal simple no pareciera ser modelo para estos datos, puede que porque tengamos pocos datos.<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Intente predecir variables correlacionalas, medianamente correlacionadas y no correlacionadas, y ninguna predice bien. Mezcle varriables climaticas con las productivas, tambien use productivas con productivas….</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./cuadernos_jupyter/produccion"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Garibaldi Anele - Allende Lucila<br/>
+    
+        &copy; Derechos de autor 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

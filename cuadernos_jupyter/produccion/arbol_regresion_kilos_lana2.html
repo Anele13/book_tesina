@@ -1,0 +1,931 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Árbol de regresión Kilos Lana 2 &#8212; Tesina de Grado</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo_facultad.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tesina de Grado</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../estructura/intro.html">
+   Sistema de Información y Apoyo a la Producción Ovina de Baja Escala en Chubut
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../estructura/preliminares.html">
+   Preliminares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../estructura/marco_teorico.html">
+   Marco Teorico
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../estructura/desarrollo.html">
+   Desarrollo
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../forraje/analisis_forraje_arbol_regresion.html">
+     Árbol de regresión Forraje
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../forraje/analisis_forraje_KNN.html">
+     Análisis Forraje k-Nearest Neighbor
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/cuadernos_jupyter/produccion/arbol_regresion_kilos_lana2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/LucilaAllende/datos-tesina-2021"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/LucilaAllende/datos-tesina-2021/issues/new?title=Issue%20on%20page%20%2Fcuadernos_jupyter/produccion/arbol_regresion_kilos_lana2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/LucilaAllende/datos-tesina-2021/master?urlpath=tree/docs/cuadernos_jupyter/produccion/arbol_regresion_kilos_lana2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#librerias">
+   Librerías
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datos">
+   Datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ajuste-del-modelo">
+   Ajuste del modelo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importancia-de-predictores">
+   Importancia de predictores
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#podado-del-arbol-pruning">
+   Podado del árbol (pruning)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediccion-y-evaluacion-del-modelo">
+   Predicción y evaluación del modelo
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Árbol de regresión Kilos Lana 2</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#librerias">
+   Librerías
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datos">
+   Datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ajuste-del-modelo">
+   Ajuste del modelo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importancia-de-predictores">
+   Importancia de predictores
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#podado-del-arbol-pruning">
+   Podado del árbol (pruning)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediccion-y-evaluacion-del-modelo">
+   Predicción y evaluación del modelo
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="arbol-de-regresion-kilos-lana-2">
+<h1>Árbol de regresión Kilos Lana 2<a class="headerlink" href="#arbol-de-regresion-kilos-lana-2" title="Permalink to this headline">¶</a></h1>
+<section id="librerias">
+<h2>Librerías<a class="headerlink" href="#librerias" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tratamiento de datos</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Gráficos</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Preprocesado y modelado</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">plot_tree</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">export_graphviz</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">export_text</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+
+<span class="c1"># Configuración warnings</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;once&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 12&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># Preprocesado y modelado</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="datos">
+<h2>Datos<a class="headerlink" href="#datos" title="Permalink to this headline">¶</a></h2>
+<p>El set de datos son las variables de produccion y climaticas anuales. Se pretende ajustar un modelo de regresión que permita predecir la cantidad de Lana en función de las variables disponibles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;datos_produccion_clima_35_1.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fecha</th>
+      <th>esquila</th>
+      <th>ovejas</th>
+      <th>corderos</th>
+      <th>kilos_lana</th>
+      <th>rinde_seco</th>
+      <th>finura</th>
+      <th>kilo_lana_p/animal</th>
+      <th>porcentaje_paricion</th>
+      <th>temp_media</th>
+      <th>temp_min</th>
+      <th>tem_max</th>
+      <th>humedad</th>
+      <th>cant_lluvia</th>
+      <th>rad_solar</th>
+      <th>vel_viento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>31/12/1985</td>
+      <td>3514</td>
+      <td>1419</td>
+      <td>912</td>
+      <td>15600</td>
+      <td>60.46</td>
+      <td>19.26</td>
+      <td>4.44</td>
+      <td>64.27</td>
+      <td>14.3</td>
+      <td>6.4</td>
+      <td>20.9</td>
+      <td>0.0</td>
+      <td>208.6</td>
+      <td>4312.72</td>
+      <td>6.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>31/12/1986</td>
+      <td>3783</td>
+      <td>1520</td>
+      <td>680</td>
+      <td>18167</td>
+      <td>61.52</td>
+      <td>19.86</td>
+      <td>4.80</td>
+      <td>44.74</td>
+      <td>12.9</td>
+      <td>5.8</td>
+      <td>20.5</td>
+      <td>58.1</td>
+      <td>130.3</td>
+      <td>4236.36</td>
+      <td>6.8</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>31/12/1987</td>
+      <td>3988</td>
+      <td>1928</td>
+      <td>512</td>
+      <td>11200</td>
+      <td>55.77</td>
+      <td>19.41</td>
+      <td>2.81</td>
+      <td>26.56</td>
+      <td>13.8</td>
+      <td>6.8</td>
+      <td>20.7</td>
+      <td>60.3</td>
+      <td>199.5</td>
+      <td>4142.41</td>
+      <td>6.4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 36 entries, 0 to 35
+Data columns (total 16 columns):
+ #   Column               Non-Null Count  Dtype  
+---  ------               --------------  -----  
+ 0   fecha                36 non-null     object 
+ 1   esquila              36 non-null     int64  
+ 2   ovejas               36 non-null     int64  
+ 3   corderos             36 non-null     int64  
+ 4   kilos_lana           36 non-null     int64  
+ 5   rinde_seco           36 non-null     float64
+ 6   finura               36 non-null     float64
+ 7   kilo_lana_p/animal   36 non-null     float64
+ 8   porcentaje_paricion  36 non-null     float64
+ 9   temp_media           36 non-null     float64
+ 10  temp_min             36 non-null     float64
+ 11  tem_max              36 non-null     float64
+ 12  humedad              36 non-null     float64
+ 13  cant_lluvia          36 non-null     float64
+ 14  rad_solar            36 non-null     float64
+ 15  vel_viento           36 non-null     float64
+dtypes: float64(11), int64(4), object(1)
+memory usage: 4.6+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ajuste-del-modelo">
+<h2>Ajuste del modelo<a class="headerlink" href="#ajuste-del-modelo" title="Permalink to this headline">¶</a></h2>
+<p>La clase DecisionTreeRegressor del módulo sklearn.tree permite entrenar árboles de decisión para problemas de regresión. A continuación, se ajusta un árbol de regresión empleando como variable respuesta <strong>kilos_lana</strong> y como predictores todas las otras variables disponibles.</p>
+<p>Como en todo estudio de regresión, no solo es importante ajustar el modelo, sino también cuantificar su capacidad para predecir nuevas observaciones. Para poder hacer la posterior evaluación, se dividen los datos en dos grupos, uno de entrenamiento y otro de test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># División de los datos en train y test</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+                                        <span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;kilos_lana&quot;</span><span class="p">,</span> <span class="s2">&quot;fecha&quot;</span><span class="p">]),</span>
+                                        <span class="n">datos</span><span class="p">[</span><span class="s1">&#39;kilos_lana&#39;</span><span class="p">],</span>
+                                        <span class="n">random_state</span> <span class="o">=</span> <span class="mi">123</span>
+                                    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creación del modelo</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">modelo</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span>
+            <span class="n">max_depth</span>         <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="n">random_state</span>      <span class="o">=</span> <span class="mi">123</span>
+          <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Entrenamiento del modelo</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DecisionTreeRegressor(max_depth=3, random_state=123)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una vez entrenado el árbol, se puede representar mediante la combinación de las funciones plot_tree() y export_text(). La función plot_tree() dibuja la estructura del árbol y muestra el número de observaciones y valor medio de la variable respuesta en cada nodo. La función export_text() representa esta misma información en formato texto</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estructura del árbol creado</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Profundidad del árbol: </span><span class="si">{</span><span class="n">modelo</span><span class="o">.</span><span class="n">get_depth</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número de nodos terminales: </span><span class="si">{</span><span class="n">modelo</span><span class="o">.</span><span class="n">get_n_leaves</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plot</span> <span class="o">=</span> <span class="n">plot_tree</span><span class="p">(</span>
+            <span class="n">decision_tree</span> <span class="o">=</span> <span class="n">modelo</span><span class="p">,</span>
+            <span class="n">feature_names</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;kilos_lana&quot;</span><span class="p">,</span><span class="s2">&quot;fecha&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+            <span class="n">class_names</span>   <span class="o">=</span> <span class="s1">&#39;kilos_lana&#39;</span><span class="p">,</span>
+            <span class="n">filled</span>        <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">impurity</span>      <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">fontsize</span>      <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="n">precision</span>     <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="n">ax</span>            <span class="o">=</span> <span class="n">ax</span>
+       <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profundidad del árbol: 3
+Número de nodos terminales: 8
+</pre></div>
+</div>
+<img alt="../../_images/arbol_regresion_kilos_lana2_13_1.png" src="../../_images/arbol_regresion_kilos_lana2_13_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texto_modelo</span> <span class="o">=</span> <span class="n">export_text</span><span class="p">(</span>
+                    <span class="n">decision_tree</span> <span class="o">=</span> <span class="n">modelo</span><span class="p">,</span>
+                    <span class="n">feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;kilos_lana&quot;</span><span class="p">,</span><span class="s2">&quot;fecha&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+               <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">texto_modelo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|--- esquila &lt;= 2981.50
+|   |--- ovejas &lt;= 1113.00
+|   |   |--- finura &lt;= 18.64
+|   |   |   |--- value: [6516.00]
+|   |   |--- finura &gt;  18.64
+|   |   |   |--- value: [9034.20]
+|   |--- ovejas &gt;  1113.00
+|   |   |--- humedad &lt;= 56.15
+|   |   |   |--- value: [10102.50]
+|   |   |--- humedad &gt;  56.15
+|   |   |   |--- value: [11950.00]
+|--- esquila &gt;  2981.50
+|   |--- kilo_lana_p/animal &lt;= 3.71
+|   |   |--- kilo_lana_p/animal &lt;= 3.48
+|   |   |   |--- value: [11089.25]
+|   |   |--- kilo_lana_p/animal &gt;  3.48
+|   |   |   |--- value: [12786.67]
+|   |--- kilo_lana_p/animal &gt;  3.71
+|   |   |--- corderos &lt;= 613.50
+|   |   |   |--- value: [13669.00]
+|   |   |--- corderos &gt;  613.50
+|   |   |   |--- value: [16845.40]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Siguiendo la rama más a la izquierda del árbol, puede verse que el modelo predice un precio promedio de 9034 kilos de lana a partir de esquila &lt;= 2981.50, ovejas &lt;= 1113.00 y un finura &lt;= 18.64.</p>
+</section>
+<section id="importancia-de-predictores">
+<h2>Importancia de predictores<a class="headerlink" href="#importancia-de-predictores" title="Permalink to this headline">¶</a></h2>
+<p>La importancia de cada predictor en modelo se calcula como la reducción total (normalizada) en el criterio de división, en este caso el mse, que consigue el predictor en las divisiones en las que participa. Si un predictor no ha sido seleccionado en ninguna divisón, no se ha incluido en el modelo y por lo tanto su importancia es 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">importancia_predictores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                            <span class="p">{</span><span class="s1">&#39;predictor&#39;</span><span class="p">:</span> <span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;kilos_lana&quot;</span><span class="p">,</span><span class="s2">&quot;fecha&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+                             <span class="s1">&#39;importancia&#39;</span><span class="p">:</span> <span class="n">modelo</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">}</span>
+                            <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Importancia de los predictores en el modelo&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------------------------&quot;</span><span class="p">)</span>
+<span class="n">importancia_predictores</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;importancia&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importancia de los predictores en el modelo
+-------------------------------------------
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>predictor</th>
+      <th>importancia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>esquila</td>
+      <td>0.535282</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>kilo_lana_p/animal</td>
+      <td>0.273126</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>corderos</td>
+      <td>0.086233</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ovejas</td>
+      <td>0.060526</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>finura</td>
+      <td>0.024088</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>humedad</td>
+      <td>0.020745</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>rinde_seco</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>porcentaje_paricion</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>temp_media</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>temp_min</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>tem_max</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>cant_lluvia</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>rad_solar</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>vel_viento</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>El predictor esquila, el número de animales esquilados, ha resultado ser el predictor más importante en el modelo, seguido de kilo_lana_p/animal, que mide la cantidad de kilo de lana por animal.</p>
+</section>
+<section id="podado-del-arbol-pruning">
+<h2>Podado del árbol (pruning)<a class="headerlink" href="#podado-del-arbol-pruning" title="Permalink to this headline">¶</a></h2>
+<p>Con la finalidad de reducir la varianza del modelo y así mejorar la capacidad predictiva, se somete al árbol a un proceso de pruning. Para aplicar el proceso de pruning es necesario indicar el argumento ccp_alpha que determina el grado de penalización por complejidad. Cuanto mayor es este valor, más agresivo el podado y menor el tamaño del árbol resultante.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pruning (const complexity pruning) por validación cruzada</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Valores de ccp_alpha evaluados</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ccp_alpha&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">20</span><span class="p">)}</span>
+
+<span class="c1"># Búsqueda por validación cruzada</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span>
+        <span class="c1"># El árbol se crece al máximo posible para luego aplicar el pruning</span>
+        <span class="n">estimator</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span>
+                            <span class="n">max_depth</span>         <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                            <span class="n">min_samples_split</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+                            <span class="n">min_samples_leaf</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                            <span class="n">random_state</span>      <span class="o">=</span> <span class="mi">123</span>
+                       <span class="p">),</span>
+        <span class="n">param_grid</span> <span class="o">=</span> <span class="n">param_grid</span><span class="p">,</span>
+        <span class="n">cv</span>         <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="n">refit</span>      <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">return_train_score</span> <span class="o">=</span> <span class="kc">True</span>
+      <span class="p">)</span>
+
+<span class="n">grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">3.84</span><span class="p">))</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
+<span class="n">scores</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;param_ccp_alpha&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean_train_score&#39;</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="s1">&#39;std_train_score&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">scores</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;param_ccp_alpha&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="s1">&#39;std_test_score&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Error de validacion cruzada vs hiperparámetro ccp_alpha&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/arbol_regresion_kilos_lana2_22_0.png" src="../../_images/arbol_regresion_kilos_lana2_22_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mejor valor ccp_alpha encontrado</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">best_params_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;ccp_alpha&#39;: 4.2105263157894735}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una vez identificado el valor óptimo de ccp_alpha, se reentrena el árbol indicando este valor en sus argumentos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estructura del árbol final</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="n">modelo_final</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Profundidad del árbol: </span><span class="si">{</span><span class="n">modelo_final</span><span class="o">.</span><span class="n">get_depth</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número de nodos terminales: </span><span class="si">{</span><span class="n">modelo_final</span><span class="o">.</span><span class="n">get_n_leaves</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">plot_tree</span><span class="p">(</span>
+            <span class="n">decision_tree</span> <span class="o">=</span> <span class="n">modelo_final</span><span class="p">,</span>
+            <span class="n">feature_names</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;kilos_lana&quot;</span><span class="p">,</span><span class="s2">&quot;fecha&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+            <span class="n">class_names</span>   <span class="o">=</span> <span class="s1">&#39;kilos_lana&quot;&#39;</span><span class="p">,</span>
+            <span class="n">filled</span>        <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">impurity</span>      <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">ax</span>            <span class="o">=</span> <span class="n">ax</span>
+       <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profundidad del árbol: 6
+Número de nodos terminales: 26
+</pre></div>
+</div>
+<img alt="../../_images/arbol_regresion_kilos_lana2_25_1.png" src="../../_images/arbol_regresion_kilos_lana2_25_1.png" />
+</div>
+</div>
+<p>El proceso de pruning a identificado como mejor árbol uno mucho más grande que el modelo inicialmente entrenado.</p>
+</section>
+<section id="prediccion-y-evaluacion-del-modelo">
+<h2>Predicción y evaluación del modelo<a class="headerlink" href="#prediccion-y-evaluacion-del-modelo" title="Permalink to this headline">¶</a></h2>
+<p>Por último, se evalúa la capacidad predictiva del primer árbol y del árbol final empleando el conjunto de test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Error de test del modelo inicial</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="n">predicciones</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span>
+        <span class="n">y_true</span>  <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span>
+        <span class="n">y_pred</span>  <span class="o">=</span> <span class="n">predicciones</span><span class="p">,</span>
+        <span class="n">squared</span> <span class="o">=</span> <span class="kc">False</span>
+       <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El error (rmse) de test es: </span><span class="si">{</span><span class="n">rmse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El error (rmse) de test es: 3124.692335165887
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Error de test del modelo final (tras aplicar pruning)</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="n">predicciones</span> <span class="o">=</span> <span class="n">modelo_final</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span>
+        <span class="n">y_true</span>  <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span>
+        <span class="n">y_pred</span>  <span class="o">=</span> <span class="n">predicciones</span><span class="p">,</span>
+        <span class="n">squared</span> <span class="o">=</span> <span class="kc">False</span>
+       <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El error (rmse) de test es: </span><span class="si">{</span><span class="n">rmse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El error (rmse) de test es: 3417.9558543407525
+</pre></div>
+</div>
+</div>
+</div>
+<p>El proceso de pruning consigue aumentar el error rmse del modelo de 3124.6 a 3417.95. Las predicciones del modelo final se alejan en promedio 3417.95 unidades del valor real (3417.95 kilos espero).</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./cuadernos_jupyter/produccion"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Garibaldi Anele - Allende Lucila<br/>
+    
+        &copy; Derechos de autor 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
